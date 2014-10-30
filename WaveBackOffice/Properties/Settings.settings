@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WaveBackOffice.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ru-RU</Value>
+    </Setting>
+    <Setting Name="DBAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.0.1.142</Value>
+    </Setting>
+    <Setting Name="DBLogin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="DBPwd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Server1917</Value>
+    </Setting>
+    <Setting Name="DBPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3306</Value>
+    </Setting>
+    <Setting Name="DBName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">hvylya_data_server</Value>
+    </Setting>
+    <Setting Name="cbAccountLigts" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AccountColorEmployee" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Pink</Value>
+    </Setting>
+    <Setting Name="AccountColorActive" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Red</Value>
+    </Setting>
+    <Setting Name="AccountColorSubscibe" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Aqua</Value>
+    </Setting>
+    <Setting Name="CurrentUserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="CurrentUserID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="CurrentUserRightMask" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="LastAddedCity" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ProtHidedCols" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

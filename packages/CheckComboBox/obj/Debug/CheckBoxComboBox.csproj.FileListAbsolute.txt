@@ -1,0 +1,13 @@
+D:\Загрузки\CheckBoxComboBox\CheckBoxComboBox\obj\Debug\PresentationControls.PopupComboBox.resources
+D:\Загрузки\CheckBoxComboBox\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.csproj.GenerateResource.Cache
+D:\Загрузки\CheckBoxComboBox\CheckBoxComboBox\bin\Debug\CheckComboBox.dll
+D:\Загрузки\CheckBoxComboBox\CheckBoxComboBox\bin\Debug\CheckComboBox.pdb
+D:\Загрузки\CheckBoxComboBox\CheckBoxComboBox\obj\Debug\CheckComboBox.dll
+D:\Загрузки\CheckBoxComboBox\CheckBoxComboBox\obj\Debug\CheckComboBox.pdb
+D:\Documents\Work\src VS\WavePOSSystem\CheckBoxComboBox\bin\Debug\CheckComboBox.dll
+D:\Documents\Work\src VS\WavePOSSystem\CheckBoxComboBox\bin\Debug\CheckComboBox.pdb
+D:\Documents\Work\src VS\WavePOSSystem\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.csprojResolveAssemblyReference.cache
+D:\Documents\Work\src VS\WavePOSSystem\CheckBoxComboBox\obj\Debug\PresentationControls.PopupComboBox.resources
+D:\Documents\Work\src VS\WavePOSSystem\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.csproj.GenerateResource.Cache
+D:\Documents\Work\src VS\WavePOSSystem\CheckBoxComboBox\obj\Debug\CheckComboBox.dll
+D:\Documents\Work\src VS\WavePOSSystem\CheckBoxComboBox\obj\Debug\CheckComboBox.pdb

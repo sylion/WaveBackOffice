@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E9AC583-C31D-48E7-A152-76710C6F2009}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WaveBackOffice</RootNamespace>
+    <AssemblyName>WaveBackOffice</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>micon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CheckComboBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CheckComboBox\bin\Debug\CheckComboBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.9.3\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=3.0.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DockPanelSuite.3.0.0-alpha8\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmAppScheduler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAppScheduler.Designer.cs">
+      <DependentUpon>frmAppScheduler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAppMarketing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAppMarketing.Designer.cs">
+      <DependentUpon>frmAppMarketing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAppProtokol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAppProtokol.Designer.cs">
+      <DependentUpon>frmAppProtokol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAppProtokolDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAppProtokolDetails.Designer.cs">
+      <DependentUpon>frmAppProtokolDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDirectoryClientsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDirectoryClientsDetails.Designer.cs">
+      <DependentUpon>frmDirectoryClientsDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDirectoryClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDirectoryClients.Designer.cs">
+      <DependentUpon>frmDirectoryClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDirectoryOperators.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDirectoryOperators.Designer.cs">
+      <DependentUpon>frmDirectoryOperators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDirectoryOperatorsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDirectoryOperatorsDetails.Designer.cs">
+      <DependentUpon>frmDirectoryOperatorsDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDirectoryPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDirectoryPOS.Designer.cs">
+      <DependentUpon>frmDirectoryPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDirectoryPOSEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDirectoryPOSEdit.Designer.cs">
+      <DependentUpon>frmDirectoryPOSEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDirectoryUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDirectoryUsers.Designer.cs">
+      <DependentUpon>frmDirectoryUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHomePage.Designer.cs">
+      <DependentUpon>frmHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInputBox.Designer.cs">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProtokolPalitra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProtokolPalitra.Designer.cs">
+      <DependentUpon>frmProtokolPalitra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWaiter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWaiter.Designer.cs">
+      <DependentUpon>frmWaiter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Universal.cs" />
+    <Compile Include="VerticalLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="frmAppScheduler.resx">
+      <DependentUpon>frmAppScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAppMarketing.resx">
+      <DependentUpon>frmAppMarketing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAppProtokol.resx">
+      <DependentUpon>frmAppProtokol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAppProtokolDetails.resx">
+      <DependentUpon>frmAppProtokolDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDirectoryClientsDetails.resx">
+      <DependentUpon>frmDirectoryClientsDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDirectoryClients.resx">
+      <DependentUpon>frmDirectoryClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDirectoryOperators.resx">
+      <DependentUpon>frmDirectoryOperators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDirectoryOperatorsDetails.resx">
+      <DependentUpon>frmDirectoryOperatorsDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDirectoryPOS.resx">
+      <DependentUpon>frmDirectoryPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDirectoryPOSEdit.resx">
+      <DependentUpon>frmDirectoryPOSEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDirectoryUsers.resx">
+      <DependentUpon>frmDirectoryUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHomePage.resx">
+      <DependentUpon>frmHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInputBox.resx">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProtokolPalitra.resx">
+      <DependentUpon>frmProtokolPalitra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWaiter.resx">
+      <DependentUpon>frmWaiter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="micon.ico" />
+    <None Include="Resources\user-info.png" />
+    <None Include="Resources\xfce-schedule.png" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\image-loading.png" />
+    <None Include="Resources\gtk-file.png" />
+    <None Include="Resources\gtk-copy.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\system-users.png" />
+    <None Include="Resources\gtk-delete.png" />
+    <None Include="Resources\gtk-edit.png" />
+    <None Include="Resources\gtk-new.png" />
+    <None Include="Resources\application-exit.png" />
+    <None Include="Resources\gnome-logs.png" />
+    <None Include="Resources\x-office-presentation.png" />
+    <None Include="Resources\text-x-log.png" />
+    <None Include="Resources\contact-new.png" />
+    <None Include="Resources\computer.png" />
+    <None Include="Resources\Logs1.ico" />
+    <None Include="Resources\Setting.ico" />
+    <None Include="Resources\Settings1.ico" />
+    <None Include="Resources\exit1.ico" />
+    <None Include="Resources\FileDelete1.ico" />
+    <None Include="Resources\FileEdit1.ico" />
+    <None Include="Resources\FileAdd1.ico" />
+    <None Include="Resources\Export1.ico" />
+    <None Include="Resources\AppMarketing.ico" />
+    <None Include="Resources\Marketing1.ico" />
+    <None Include="Resources\Protokols1.ico" />
+    <None Include="Resources\POSDir1.ico" />
+    <None Include="Resources\Clients1.ico" />
+    <None Include="Resources\Barcode.ico" />
+    <None Include="Resources\Users.ico" />
+    <None Include="Resources\Settings.ico" />
+    <None Include="Resources\search.ico" />
+    <None Include="Resources\Protokols.ico" />
+    <None Include="Resources\POSDir.ico" />
+    <None Include="Resources\Marketing.ico" />
+    <None Include="Resources\Logs.ico" />
+    <None Include="Resources\Logout.ico" />
+    <None Include="Resources\Login.ico" />
+    <None Include="Resources\Key.ico" />
+    <None Include="Resources\Home.ico" />
+    <None Include="Resources\Folder.ico" />
+    <None Include="Resources\FileEdit.ico" />
+    <None Include="Resources\FileDelete.ico" />
+    <None Include="Resources\FileAdd.ico" />
+    <None Include="Resources\File.ico" />
+    <None Include="Resources\Export.ico" />
+    <None Include="Resources\exit.ico" />
+    <None Include="Resources\Diagrams.ico" />
+    <None Include="Resources\create db.ico" />
+    <None Include="Resources\Clients.ico" />
+    <None Include="Resources\Charts.ico" />
+    <None Include="Resources\Fatcow-Farm-Fresh-Application-from-storage.ico" />
+    <None Include="Resources\protokol.ico" />
+    <None Include="Resources\pos.ico" />
+    <None Include="Resources\card.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

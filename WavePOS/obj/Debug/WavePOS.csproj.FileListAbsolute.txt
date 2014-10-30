@@ -1,0 +1,9 @@
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WavePOS\bin\Debug\WavePOS.exe
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WavePOS\bin\Debug\WavePOS.pdb
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WavePOS\obj\Debug\WavePOS.Properties.Resources.resources
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WavePOS\obj\Debug\WavePOS.csproj.GenerateResource.Cache
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WavePOS\obj\Debug\WavePOS.exe
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WavePOS\obj\Debug\WavePOS.pdb
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WavePOS\bin\Debug\WavePOS.exe.config
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WavePOS\obj\Debug\WavePOS.frmMain.resources
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WavePOS\obj\Debug\WavePOS.csprojResolveAssemblyReference.cache

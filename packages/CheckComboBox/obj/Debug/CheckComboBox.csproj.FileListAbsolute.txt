@@ -1,0 +1,6 @@
+D:\Documents\Work\src VS\WavePOSSystem\CheckComboBox\bin\Debug\CheckComboBox.dll
+D:\Documents\Work\src VS\WavePOSSystem\CheckComboBox\bin\Debug\CheckComboBox.pdb
+D:\Documents\Work\src VS\WavePOSSystem\CheckComboBox\obj\Debug\PresentationControls.PopupComboBox.resources
+D:\Documents\Work\src VS\WavePOSSystem\CheckComboBox\obj\Debug\CheckComboBox.csproj.GenerateResource.Cache
+D:\Documents\Work\src VS\WavePOSSystem\CheckComboBox\obj\Debug\CheckComboBox.dll
+D:\Documents\Work\src VS\WavePOSSystem\CheckComboBox\obj\Debug\CheckComboBox.pdb
