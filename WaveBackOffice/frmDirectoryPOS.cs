@@ -25,7 +25,7 @@ namespace WaveBackOffice
         {
             treeViewPOS.Nodes.Clear();
             treeViewPOS.Nodes.Add("ХВИЛЯ");
-            string Query = "SELECT * FROM directory_pos_groups";
+            string Query = "SELECT * FROM `directory_pos_groups`";
             DataTable DTGroups;
             DataTable DTObjects;
             DataTable DTPos;
@@ -38,14 +38,14 @@ namespace WaveBackOffice
             foreach (DataRow drg in DTGroups.Rows)
             {
                 TreeNode node = new TreeNode(drg.ItemArray[1].ToString());
-                Query = "SELECT directory_pos_objects.id, directory_pos_objects.`name` FROM directory_pos_objects, directory_pos_groups WHERE directory_pos_objects.group_id = directory_pos_groups.id AND directory_pos_groups.name = '" +
-                    drg.ItemArray[1].ToString() + "';";
+                Query = "SELECT `directory_pos_objects`.`id`, `directory_pos_objects`.`name` FROM `directory_pos_objects`, `directory_pos_groups` " +
+                    "WHERE directory_pos_objects.group_id = directory_pos_groups.id AND directory_pos_groups.name = '" + drg.ItemArray[1].ToString() + "' ORDER BY `directory_pos_objects`.`name`;";
                 DTObjects = db.getDT(Query);
                 foreach (DataRow dro in DTObjects.Rows)
                 {
                     TreeNode node1 = new TreeNode(dro.ItemArray[1].ToString());
-                    Query = Query = "SELECT directory_pos.id, directory_pos.`name` FROM directory_pos_objects, directory_pos WHERE directory_pos_objects.id = directory_pos.object_id AND directory_pos_objects.name = '" +
-                        dro.ItemArray[1].ToString() + "';";
+                    Query = "SELECT `directory_pos`.`id`, `directory_pos`.`name` FROM `directory_pos_objects`, `directory_pos` " +
+                        "WHERE `directory_pos_objects`.`id` = `directory_pos`.`object_id` AND `directory_pos_objects`.`name` = '" + dro.ItemArray[1].ToString() + "' ORDER BY `directory_pos`.`name`;";
                     DTPos = db.getDT(Query);
                     foreach (DataRow drp in DTPos.Rows)
                     {

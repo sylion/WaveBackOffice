@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaveBackOffice", "WaveBackOffice\WaveBackOffice.csproj", "{4E9AC583-C31D-48E7-A152-76710C6F2009}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WavePOS", "WavePOS\WavePOS.csproj", "{B79B8B14-BE02-4610-A8F2-85152C59EE1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaveServer", "WaveServer\WaveServer.csproj", "{0142175F-1A1A-40C2-A2BE-C9AE284902EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B79B8B14-BE02-4610-A8F2-85152C59EE1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B79B8B14-BE02-4610-A8F2-85152C59EE1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B79B8B14-BE02-4610-A8F2-85152C59EE1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0142175F-1A1A-40C2-A2BE-C9AE284902EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0142175F-1A1A-40C2-A2BE-C9AE284902EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0142175F-1A1A-40C2-A2BE-C9AE284902EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0142175F-1A1A-40C2-A2BE-C9AE284902EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

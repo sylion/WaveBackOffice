@@ -174,9 +174,17 @@ namespace WaveBackOffice
                             MessageBox.Show("Выберите объект и введите имя нового POS терминала", "Введите данные", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
-                        Query = "INSERT INTO `directory_pos` (`name`, `fiscal_number`, `object_id`, `description`) " +
-                        "VALUES ('" + tbPOS.Text + "', '" + tbFiscalNumber.Text + "', " +
+                        Query = "INSERT INTO `directory_pos` (`name`, `object_id`, `description`) " +
+                        "VALUES ('" + tbPOS.Text + "', " +
                         "(SELECT `id` FROM `directory_pos_objects` WHERE `name` = '" + tbObj.Text + "'), '" + tbComment.Text + "'); ";
+                        if (tbFiscalNumber.Text.Trim() != "")
+                        {
+                            string[] tmp = tbFiscalNumber.Text.Trim().Split(';');
+                            foreach (string s in tmp)
+                                if (s.Trim() != "")
+                                    Query += "INSERT INTO `directory_pos_fiscals` (`fiscal_number`, `pos_id`) VALUES ('" + s + "', LAST_INSERT_ID()) " +
+                                        "ON DUPLICATE KEY UPDATE `pos_id` = '" + tbID.Text + "'; ";
+                        }
                         Query += db.GetLogQuery(3, 0, 14, WaveBackOffice.Properties.Settings.Default.CurrentUserID, "Добавление POS: " + tbPOS.Text);
                         if (!db.Execute(Query)) MessageBox.Show(db.GetLastError()); else this.Close();
                         break;
