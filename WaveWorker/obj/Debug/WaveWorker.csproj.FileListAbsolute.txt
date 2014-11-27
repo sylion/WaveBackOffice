@@ -1,0 +1,10 @@
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\bin\Debug\Worker.exe.config
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\bin\Debug\Worker.exe
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\bin\Debug\Worker.pdb
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\Hvylya_Worker.frmMain.resources
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\Hvylya_Worker.frmSettings.resources
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\Hvylya_Worker.frmUpdate.resources
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\Hvylya_Worker.Properties.Resources.resources
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\WaveWorker.csproj.GenerateResource.Cache
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\Worker.exe
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\Worker.pdb

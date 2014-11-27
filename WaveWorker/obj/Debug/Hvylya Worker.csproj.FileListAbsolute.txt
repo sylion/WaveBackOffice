@@ -1,0 +1,39 @@
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Hvylya Worker.exe.config
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Hvylya Worker.exe
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Hvylya Worker.pdb
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Tamir.SharpSSH.dll
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\DiffieHellman.dll
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Org.Mentalis.Security.dll
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.frmMain.resources
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.frmSettings.resources
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.frmUpdate.resources
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.Properties.Resources.resources
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya Worker.csproj.GenerateResource.Cache
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya Worker.exe
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya Worker.pdb
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Hvylya Worker.exe.config
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya Worker.exe
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya Worker.pdb
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Hvylya Worker.exe
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Hvylya Worker.pdb
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Tamir.SharpSSH.dll
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\DiffieHellman.dll
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Org.Mentalis.Security.dll
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.frmMain.resources
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.frmSettings.resources
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.frmUpdate.resources
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.Properties.Resources.resources
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya Worker.csproj.GenerateResource.Cache
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.frmMain.resources
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.frmSettings.resources
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.frmUpdate.resources
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya_Worker.Properties.Resources.resources
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya Worker.csproj.GenerateResource.Cache
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Worker.exe.config
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Worker.exe
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Debug\Worker.pdb
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Worker.exe
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Worker.pdb
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Debug\Hvylya Worker.csprojResolveAssemblyReference.cache

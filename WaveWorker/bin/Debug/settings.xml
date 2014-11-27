@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <main>
+    <Offline>false</Offline>
+    <sendF>false</sendF>
+    <sendSC>false</sendSC>
+    <checkGC>false</checkGC>
+    <checkUpdates>false</checkUpdates>
+    <Autostart>false</Autostart>
+    <startSoft>false</startSoft>
+    <CheckTimer>5000</CheckTimer>
+    <GCTimer>10000</GCTimer>
+    <syncTimer>180000</syncTimer>
+    <uploadTimer>5000</uploadTimer>
+    <Autorun>
+      <string>C:\\smarket\\runsmarket.lnk</string>
+    </Autorun>
+    <TimeServer>10.0.1.142</TimeServer>
+    <fullLogs>false</fullLogs>
+  </main>
+  <fpserver>
+    <SalesPath>\\127.0.0.1\\smarket\\fpserver\\sales</SalesPath>
+    <ServerAddress>127.0.0.1</ServerAddress>
+  </fpserver>
+  <localdirs>
+    <InPath>C:\\POS\\IN</InPath>
+    <OutPath>C:\\POS\\OUT</OutPath>
+    <CommandPath>C:\\POS\\COMMAND</CommandPath>
+    <SalesPath>C:\\SMARKET\\POS\\SALES</SalesPath>
+  </localdirs>
+  <softwareupdater>
+    <FTPServer>ftp://10.0.1.20/Volume_1/updates</FTPServer>
+    <FTPLogin>updater</FTPLogin>
+    <FTPPassword>updater</FTPPassword>
+    <UpdateGoup>POS</UpdateGoup>
+  </softwareupdater>
+  <baseupdater>
+    <goodsDir>\\10.0.1.141\POS1\MAYDANPOS\</goodsDir>
+    <cardsDir>\\10.0.1.141\POS1\</cardsDir>
+  </baseupdater>
+  <uploader>
+    <SalesDir>\\10.0.1.142\protokolpos\tmp</SalesDir>
+  </uploader>
+</Settings>

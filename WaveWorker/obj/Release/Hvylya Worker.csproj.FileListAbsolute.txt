@@ -1,0 +1,42 @@
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Hvylya Worker.exe.config
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Hvylya Worker.exe
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Hvylya Worker.pdb
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Tamir.SharpSSH.dll
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\DiffieHellman.dll
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Org.Mentalis.Security.dll
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.frmMain.resources
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.frmSettings.resources
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.frmUpdate.resources
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.Properties.Resources.resources
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya Worker.csproj.GenerateResource.Cache
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya Worker.exe
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya Worker.pdb
+C:\Users\SYL\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya Worker.csprojResolveAssemblyReference.cache
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Hvylya Worker.exe.config
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya Worker.exe
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya Worker.pdb
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Hvylya Worker.exe
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Hvylya Worker.pdb
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Tamir.SharpSSH.dll
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\DiffieHellman.dll
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Org.Mentalis.Security.dll
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.frmMain.resources
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.frmSettings.resources
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.frmUpdate.resources
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.Properties.Resources.resources
+C:\Users\Ярослав\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya Worker.csproj.GenerateResource.Cache
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.frmMain.resources
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.frmSettings.resources
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.frmUpdate.resources
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya_Worker.Properties.Resources.resources
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Hvylya Worker.csproj.GenerateResource.Cache
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Worker.exe.config
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Worker.exe
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Worker.pdb
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Worker.exe
+D:\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Worker.pdb
+C:\Users\Sy\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\bin\Release\Worker.exe.config
+C:\Users\Sy\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Worker.exe
+C:\Users\Sy\Documents\Work\src VS\Hvylya Worker\Hvylya Worker\obj\Release\Worker.pdb

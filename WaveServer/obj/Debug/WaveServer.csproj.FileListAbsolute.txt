@@ -1,0 +1,9 @@
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\bin\Debug\WaveServer.exe
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\bin\Debug\WaveServer.pdb
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\obj\Debug\WaveServer.ProjectInstaller.resources
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\obj\Debug\WaveServer.csproj.GenerateResource.Cache
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\obj\Debug\WaveServer.exe
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\obj\Debug\WaveServer.pdb
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\bin\Debug\WaveServer.exe.config
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\bin\Debug\MySql.Data.dll
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\obj\Debug\WaveServer.Server.resources
