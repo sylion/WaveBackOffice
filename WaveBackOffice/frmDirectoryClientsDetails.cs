@@ -197,8 +197,7 @@ namespace WaveBackOffice
                 UnixTime.ToUnixTimestamp(DateTime.Now.ToUniversalTime()).ToString() + "');";
                 Query += "INSERT INTO `directory_log` (`module_id`, `some_id`, `date`, `operation_id`, `user_id`, `description`)" +
                     "VALUES (1, LAST_INSERT_ID(), " + UnixTime.ToUnixTimestamp(DateTime.Now.ToUniversalTime()) + ", 1, " + WaveBackOffice.Properties.Settings.Default.CurrentUserID + ", '');";
-                Query += "INSERT INTO `scheduler_tasks` (`module_id`, `time`, `is_master`) VALUES ('" + (int)Modules.DirClients +
-                    "', '" + UnixTime.ToUnixTimestamp(DateTime.Now) + "', '1') ON DUPLICATE KEY UPDATE `time` = '" + UnixTime.ToUnixTimestamp(DateTime.Now) + "';";
+                Query += "INSERT INTO `scheduler_tasks` (`operation_id`, `time`, `is_master`) VALUES ( 1,'" + UnixTime.ToUnixTimestamp(DateTime.Now) + "', '1') ON DUPLICATE KEY UPDATE `time` = '" + UnixTime.ToUnixTimestamp(DateTime.Now) + "';";
                 if (!cbActive.Checked)
                 {
                     Query += "UPDATE directory_account SET `date_deactivate` = " + UnixTime.ToUnixTimestamp(DateTime.Now.ToUniversalTime()).ToString() + " WHERE `account_id` = LAST_INSERT_ID();";
@@ -286,8 +285,7 @@ namespace WaveBackOffice
                     "', `birthday` = '" + date + "', `birthday1` = '" + date1 + "', `birthday2` = '" + date2 + "', `birthday3` = '" + date3 + "', `birthday4` = '" + date4 + "' WHERE `account_id` = " + id + ";";
                     Query += "INSERT INTO `directory_log` (`module_id`, `some_id`, `date`, `operation_id`, `user_id`, `description`)" +
                         "VALUES (1, " + id + ", " + UnixTime.ToUnixTimestamp(DateTime.Now.ToUniversalTime()) + ", 7, " + WaveBackOffice.Properties.Settings.Default.CurrentUserID + ", '');";
-                    Query += "INSERT INTO `scheduler_tasks` (`module_id`, `time`, `is_master`) VALUES ('" + (int)Modules.DirClients +
-                    "', '" + UnixTime.ToUnixTimestamp(DateTime.Now) + "', '1') ON DUPLICATE KEY UPDATE `time` = '" + UnixTime.ToUnixTimestamp(DateTime.Now) + "';";
+                    Query += "INSERT INTO `scheduler_tasks` (`operation_id`, `time`, `is_master`) VALUES (1, '" + UnixTime.ToUnixTimestamp(DateTime.Now) + "', '1') ON DUPLICATE KEY UPDATE `time` = '" + UnixTime.ToUnixTimestamp(DateTime.Now) + "';";
                     //If activation state changed
                     if (cbActive.Checked != active_state && active_state)
                     {

@@ -39,7 +39,7 @@
             // 
             // serviceInstaller1
             // 
-            this.serviceInstaller1.DisplayName = "HvylyaServer";
+            this.serviceInstaller1.DisplayName = "Wave Server";
             this.serviceInstaller1.ServiceName = "Service1";
             this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 

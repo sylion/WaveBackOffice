@@ -28,14 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.Log = new System.Diagnostics.EventLog();
-            this.doTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Log)).BeginInit();
-            // 
-            // doTimer
-            // 
-            this.doTimer.Interval = 30000;
             // 
             // Server
             // 
@@ -47,6 +41,5 @@
         #endregion
 
         private System.Diagnostics.EventLog Log;
-        private System.Windows.Forms.Timer doTimer;
     }
 }

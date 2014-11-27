@@ -115,10 +115,16 @@
             // 
             // dgvDoneTasks
             // 
+            this.dgvDoneTasks.AllowUserToAddRows = false;
+            this.dgvDoneTasks.AllowUserToDeleteRows = false;
+            this.dgvDoneTasks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDoneTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoneTasks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDoneTasks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDoneTasks.Location = new System.Drawing.Point(3, 16);
+            this.dgvDoneTasks.MultiSelect = false;
             this.dgvDoneTasks.Name = "dgvDoneTasks";
+            this.dgvDoneTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDoneTasks.Size = new System.Drawing.Size(693, 181);
             this.dgvDoneTasks.TabIndex = 0;
             // 
@@ -220,6 +226,7 @@
             this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "Подтвердить";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnCancel
             // 
