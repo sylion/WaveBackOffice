@@ -8,3 +8,4 @@ C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\Hvylya_Work
 C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\WaveWorker.csproj.GenerateResource.Cache
 C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\Worker.exe
 C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\Worker.pdb
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveWorker\obj\Debug\WaveWorker.csprojResolveAssemblyReference.cache

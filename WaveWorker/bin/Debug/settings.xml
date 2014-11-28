@@ -16,11 +16,12 @@
       <string>C:\\smarket\\runsmarket.lnk</string>
     </Autorun>
     <TimeServer>10.0.1.142</TimeServer>
-    <fullLogs>false</fullLogs>
+    <fullLogs>true</fullLogs>
+    <sendTxt>false</sendTxt>
   </main>
   <fpserver>
     <SalesPath>\\127.0.0.1\\smarket\\fpserver\\sales</SalesPath>
-    <ServerAddress>127.0.0.1</ServerAddress>
+    <ServerAddress />
   </fpserver>
   <localdirs>
     <InPath>C:\\POS\\IN</InPath>
@@ -40,5 +41,6 @@
   </baseupdater>
   <uploader>
     <SalesDir>\\10.0.1.142\protokolpos\tmp</SalesDir>
+    <TxtSalesDir>C:\\POS</TxtSalesDir>
   </uploader>
 </Settings>

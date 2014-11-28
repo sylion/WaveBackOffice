@@ -8,7 +8,7 @@ namespace Hvylya_Worker
 {
     public partial class frmUpdate : Form
     {
-        int mypatch = 14; //Текущий патч Worker'a
+        int mypatch = 15; //Текущий патч Worker'a
         public string log = "";
         public delegate void AppendLog(string msg);
         //Сохранение лога из других потоков

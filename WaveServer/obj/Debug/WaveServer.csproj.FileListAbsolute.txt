@@ -7,3 +7,4 @@ C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\obj\Debug\WaveServer.
 C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\bin\Debug\WaveServer.exe.config
 C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\bin\Debug\MySql.Data.dll
 C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\obj\Debug\WaveServer.Server.resources
+C:\Users\Sy\Documents\Work\src VS\WavePOSSystem\WaveServer\obj\Debug\WaveServer.csprojResolveAssemblyReference.cache

@@ -10,10 +10,11 @@ namespace Hvylya_Worker
     public partial class frmMain : Form
     {
         //
-        int mypatch = 14;
-        string patchv = "20140615 1741";
+        int mypatch = 15;
+        string patchv = "20141127 0238";
         //Создание фонового потока с возможностью прерывания работы
         AbortableBackgroundWorker bwUploadChecks = new AbortableBackgroundWorker();
+        AbortableBackgroundWorker bwUploadTxtChecks = new AbortableBackgroundWorker();
         AbortableBackgroundWorker bwUploadLocalChecks = new AbortableBackgroundWorker();
         //
         TaskbarNotifier taskbarNotifier = new TaskbarNotifier();
@@ -25,6 +26,7 @@ namespace Hvylya_Worker
         //========Блокировка повторных запусков потоков============================
         public static bool checkStarted = false; //Статус запуска потока
         public static bool sendStarted = false; //Статус запуска потока
+        public static bool sendTxtStarted = false; //Статус запуска потока
         public static bool sendLocalStarted = false; //Статус запуска потока
         public static bool FPServerRun = false; //Статус запуска потока
         //=========================================================================
@@ -61,13 +63,17 @@ namespace Hvylya_Worker
                     return;
                 }
             }
-            log.AppendText(DateTime.Now.ToLongTimeString() + " - Выполняю запуск ПО...\n\n");
             if (set.main.startSoft)
+            {
+                log.AppendText(DateTime.Now.ToLongTimeString() + " - Выполняю запуск ПО...\n\n");
                 Worker.AutoStart(set.main);
+            }
             uploadLocalTimer.Enabled = true;
             uploadLocalTimer.Start();
             uploadTimer.Enabled = true;
             uploadTimer.Start();
+            uploadTxtTimer.Enabled = true;
+            uploadTxtTimer.Start();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -76,6 +82,8 @@ namespace Hvylya_Worker
             bwUploadChecks.DoWork += bwUploadChecks_DoWork;
             bwUploadLocalChecks.WorkerSupportsCancellation = true;
             bwUploadLocalChecks.DoWork += bwUploadLocalChecks_DoWork;
+            bwUploadTxtChecks.WorkerSupportsCancellation = true;
+            bwUploadTxtChecks.DoWork += bwUploadTxtChecks_DoWork;
             //
             mbtnPatch.Text += " " + mypatch.ToString();
             mbtnVers.Text += " " + patchv.ToString();
@@ -85,6 +93,7 @@ namespace Hvylya_Worker
                     Directory.Delete(Directory.GetCurrentDirectory() + "\\tmp", true);
             }
             catch { }
+            log.AppendText("=======" + Environment.MachineName + "=======\n");
             log.AppendText(DateTime.Today.ToShortDateString() + "\n");
             log.AppendText(" - - -\n");
             log.AppendText(DateTime.Now.ToLongTimeString() + " - Загружаю настройки...\n");
@@ -113,7 +122,6 @@ namespace Hvylya_Worker
         //Применение настроек, установка значения кнопок, параметров автозапуска и т.д. 
         void ApplySet()
         {
-
             log.AppendText(" - - -\n");
             log.AppendText(DateTime.Now.ToLongTimeString() + " - Применяю новые настройки...\n");
             //Проверка настроек
@@ -123,6 +131,7 @@ namespace Hvylya_Worker
                 syncTimer.Interval = (int)set.main.syncTimer;
                 checkGCTimer.Interval = (int)set.main.GCTimer;
                 uploadTimer.Interval = (int)set.main.uploadTimer;
+                uploadTxtTimer.Interval = (int)set.main.uploadTimer;
                 uploadLocalTimer.Interval = (int)set.main.uploadTimer;
                 //
                 cbtnAutostart.Checked = set.main.Autostart;
@@ -155,6 +164,11 @@ namespace Hvylya_Worker
                 set.main.Offline = true;
                 SetErrorTimer.Start();
             }
+            cbtnSendTxt.Checked = set.main.sendTxt;
+            if (set.main.sendTxt)
+                log.AppendText(DateTime.Now.ToLongTimeString() + " - Отправка TXT чеков на сервер включена!\n");
+            else
+                log.AppendText(DateTime.Now.ToLongTimeString() + " - Отправка TXT чеков на сервер выключена!\n");
             cbtnSendSC.Checked = set.main.sendSC;
             if (set.main.sendSC)
                 log.AppendText(DateTime.Now.ToLongTimeString() + " - Отправка чеков на сервер включена!\n");
@@ -176,14 +190,14 @@ namespace Hvylya_Worker
             if (set.main.Offline)
             {
                 log.AppendText(DateTime.Now.ToLongTimeString() + " - Режим offline включен!\n");
-                cbtnCheckGC.Enabled = cbtnSendF.Enabled = cbtnSendSC.Enabled = false;
+                cbtnCheckGC.Enabled = cbtnSendF.Enabled = cbtnSendSC.Enabled = cbtnSendTxt.Enabled = false;
                 DoWhatYouDo.Stop();
                 FPErrorTimer.Stop();
             }
             else
             {
                 log.AppendText(DateTime.Now.ToLongTimeString() + " - Режим offline выключен!\n");
-                cbtnCheckGC.Enabled = cbtnSendF.Enabled = cbtnSendSC.Enabled = true;
+                cbtnCheckGC.Enabled = cbtnSendF.Enabled = cbtnSendSC.Enabled = cbtnSendTxt.Enabled = true;
                 DoWhatYouDo.Start();
                 FPErrorTimer.Start();
             }
@@ -228,6 +242,11 @@ namespace Hvylya_Worker
         private void cbtnCheckUpdates_Click(object sender, EventArgs e)
         {
             set.main.checkUpdates = !set.main.checkUpdates;
+            ApplySet();
+        }
+        private void cbtnSendTxt_Click(object sender, EventArgs e)
+        {
+            set.main.sendTxt = !set.main.sendTxt;
             ApplySet();
         }
         private void cbtnSendSC_Click(object sender, EventArgs e)
@@ -369,6 +388,45 @@ namespace Hvylya_Worker
                 }
             }
         }
+        private void UploadTxtTimer_Tick(object sender, EventArgs e)
+        {
+            if (!set.main.Offline && set.main.sendTxt)
+            {
+                //Запустить если еще не запущен
+                if (!sendTxtStarted && !bwUploadTxtChecks.IsBusy)
+                {
+                    if (set.main.fullLogs)
+                        log.AppendText(DateTime.Now.ToLongTimeString() + " - Отправка TXT чеков\n");
+                    try
+                    {
+                        bwUploadTxtChecks.RunWorkerAsync();
+                        clock = 0;
+                    }
+                    catch { }
+                }
+                else
+                {
+                    clock += 1;
+                }
+                //Защита от застопорившегося бекграунд процесса
+                if (clock > 20)
+                {
+                    log.AppendText(DateTime.Now.ToLongTimeString() + " - Перегрузка счетчика отправки чеков, пытаюсь принудительно закрыть соединение с сервером и открыть новое... \n");
+                    bwUploadTxtChecks.Abort();
+                    bwUploadTxtChecks.CancelAsync();
+                    bwUploadTxtChecks.Dispose();
+                    clock = 0;
+                    try
+                    {
+                        bwUploadTxtChecks.RunWorkerAsync();
+                    }
+                    catch
+                    {
+                        log.AppendText(DateTime.Now.ToLongTimeString() + " - Ошибка, не удалось завершить старый поток отправки чеков... \n");
+                    }
+                }
+            }
+        }
         private void uploadLocalTimer_Tick(object sender, EventArgs e)
         {
             if (!set.main.Offline && set.main.sendF)
@@ -419,11 +477,28 @@ namespace Hvylya_Worker
                 this.BeginInvoke(new AppendLog(log.AppendText), DateTime.Now.ToLongTimeString() + " - Не удалось установить соединение с FP сервером\n");
             }
         }
+        //Отправка txt чеков на сервер
+        void bwUploadTxtChecks_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string tmpError;
+            tmpError = Put.putTxtChecks(set);
+            if (tmpError != "")
+            {
+                try
+                {
+                    this.BeginInvoke(new AppendLog(log.AppendText), DateTime.Now.ToLongTimeString() + " - ошибка при отправке чеков на сервер:\n");
+                    this.BeginInvoke(new AppendLog(log.AppendText), " - - -\n");
+                    this.BeginInvoke(new AppendLog(log.AppendText), tmpError + "\n");
+                    this.BeginInvoke(new AppendLog(log.AppendText), " - - -\n");
+                }
+                catch { }
+            }
+        }
         //Отправка чеков
         private void bwUploadChecks_DoWork(object sender, DoWorkEventArgs e)
         {
             string tmpError;
-            tmpError = sFTP.putChecks(set);
+            tmpError = Put.putChecks(set);
             if (tmpError != "")
             {
                 try
@@ -439,7 +514,7 @@ namespace Hvylya_Worker
         private void bwUploadLocalChecks_DoWork(object sender, DoWorkEventArgs e)
         {
             string tmpError;
-            tmpError = sFTP.putLocalChecks(set);
+            tmpError = Put.putLocalChecks(set);
             if (tmpError != "")
             {
                 try
@@ -456,7 +531,7 @@ namespace Hvylya_Worker
         private void bwUpdateGC_DoWork(object sender, DoWorkEventArgs e)
         {
             string tmpError;
-            tmpError = sFTP.checkGC(set);
+            tmpError = Put.checkGC(set);
             if (tmpError != "")
             {
                 if (tmpError.StartsWith(" - Справочник"))

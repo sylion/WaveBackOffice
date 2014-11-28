@@ -38,6 +38,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.cbtnAutostart = new System.Windows.Forms.ToolStripMenuItem();
             this.cbtnCheckUpdates = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbtnStartSoft = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.cbtnOffline = new System.Windows.Forms.ToolStripMenuItem();
             this.cbtnSendSC = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +64,8 @@
             this.saveLog = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.uploadLocalTimer = new System.Windows.Forms.Timer(this.components);
-            this.cbtnStartSoft = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbtnSendTxt = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadTxtTimer = new System.Windows.Forms.Timer(this.components);
             this.trayContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,6 +100,7 @@
             this.cbtnStartSoft,
             this.toolStripMenuItem4,
             this.cbtnOffline,
+            this.cbtnSendTxt,
             this.cbtnSendSC,
             this.cbtnSendF,
             this.cbtnCheckGC,
@@ -108,83 +111,90 @@
             this.toolStripMenuItem3,
             this.cbtn_close});
             this.trayContextMenu.Name = "trayContextMenu";
-            this.trayContextMenu.Size = new System.Drawing.Size(240, 336);
+            this.trayContextMenu.Size = new System.Drawing.Size(249, 336);
             // 
             // cbtnLog
             // 
             this.cbtnLog.Name = "cbtnLog";
-            this.cbtnLog.Size = new System.Drawing.Size(239, 22);
+            this.cbtnLog.Size = new System.Drawing.Size(248, 22);
             this.cbtnLog.Text = "Показать log";
             this.cbtnLog.Click += new System.EventHandler(this.cbtnLog_Click);
             // 
             // cbtnSettings
             // 
             this.cbtnSettings.Name = "cbtnSettings";
-            this.cbtnSettings.Size = new System.Drawing.Size(239, 22);
+            this.cbtnSettings.Size = new System.Drawing.Size(248, 22);
             this.cbtnSettings.Text = "Настройки";
             this.cbtnSettings.Click += new System.EventHandler(this.cbtnSettings_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(236, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(245, 6);
             // 
             // cbtnAutostart
             // 
             this.cbtnAutostart.Name = "cbtnAutostart";
-            this.cbtnAutostart.Size = new System.Drawing.Size(239, 22);
+            this.cbtnAutostart.Size = new System.Drawing.Size(248, 22);
             this.cbtnAutostart.Text = "Стартовать с Windows";
             this.cbtnAutostart.Click += new System.EventHandler(this.cbtnAutostart_Click);
             // 
             // cbtnCheckUpdates
             // 
             this.cbtnCheckUpdates.Name = "cbtnCheckUpdates";
-            this.cbtnCheckUpdates.Size = new System.Drawing.Size(239, 22);
+            this.cbtnCheckUpdates.Size = new System.Drawing.Size(248, 22);
             this.cbtnCheckUpdates.Text = "Проверять обновления";
             this.cbtnCheckUpdates.Click += new System.EventHandler(this.cbtnCheckUpdates_Click);
+            // 
+            // cbtnStartSoft
+            // 
+            this.cbtnStartSoft.Name = "cbtnStartSoft";
+            this.cbtnStartSoft.Size = new System.Drawing.Size(248, 22);
+            this.cbtnStartSoft.Text = "Запускать ПО";
+            this.cbtnStartSoft.Click += new System.EventHandler(this.cbtnStartSoft_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(236, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(245, 6);
             // 
             // cbtnOffline
             // 
             this.cbtnOffline.Name = "cbtnOffline";
-            this.cbtnOffline.Size = new System.Drawing.Size(239, 22);
+            this.cbtnOffline.Size = new System.Drawing.Size(248, 22);
             this.cbtnOffline.Text = "Режим Offline";
             this.cbtnOffline.Click += new System.EventHandler(this.cbtnOffline_Click);
             // 
             // cbtnSendSC
             // 
             this.cbtnSendSC.Name = "cbtnSendSC";
-            this.cbtnSendSC.Size = new System.Drawing.Size(239, 22);
+            this.cbtnSendSC.Size = new System.Drawing.Size(248, 22);
             this.cbtnSendSC.Text = "Отправлять чеки на сервер";
             this.cbtnSendSC.Click += new System.EventHandler(this.cbtnSendSC_Click);
             // 
             // cbtnSendF
             // 
             this.cbtnSendF.Name = "cbtnSendF";
-            this.cbtnSendF.Size = new System.Drawing.Size(239, 22);
+            this.cbtnSendF.Size = new System.Drawing.Size(248, 22);
             this.cbtnSendF.Text = "Отправлять фискальные чеки";
             this.cbtnSendF.Click += new System.EventHandler(this.cbtnSendF_Click);
             // 
             // cbtnCheckGC
             // 
             this.cbtnCheckGC.Name = "cbtnCheckGC";
-            this.cbtnCheckGC.Size = new System.Drawing.Size(239, 22);
+            this.cbtnCheckGC.Size = new System.Drawing.Size(248, 22);
             this.cbtnCheckGC.Text = "Обновлять справочники POS";
             this.cbtnCheckGC.Click += new System.EventHandler(this.cbtnCheckGC_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(236, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(245, 6);
             // 
             // cbtnAbout
             // 
             this.cbtnAbout.Name = "cbtnAbout";
-            this.cbtnAbout.Size = new System.Drawing.Size(239, 22);
+            this.cbtnAbout.Size = new System.Drawing.Size(248, 22);
             this.cbtnAbout.Text = "О программе...";
             this.cbtnAbout.Click += new System.EventHandler(this.cbtnAbout_Click);
             // 
@@ -192,25 +202,25 @@
             // 
             this.mbtnPatch.Enabled = false;
             this.mbtnPatch.Name = "mbtnPatch";
-            this.mbtnPatch.Size = new System.Drawing.Size(239, 22);
+            this.mbtnPatch.Size = new System.Drawing.Size(248, 22);
             this.mbtnPatch.Text = "patch #";
             // 
             // mbtnVers
             // 
             this.mbtnVers.Enabled = false;
             this.mbtnVers.Name = "mbtnVers";
-            this.mbtnVers.Size = new System.Drawing.Size(239, 22);
+            this.mbtnVers.Size = new System.Drawing.Size(248, 22);
             this.mbtnVers.Text = "version";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(236, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(245, 6);
             // 
             // cbtn_close
             // 
             this.cbtn_close.Name = "cbtn_close";
-            this.cbtn_close.Size = new System.Drawing.Size(239, 22);
+            this.cbtn_close.Size = new System.Drawing.Size(248, 22);
             this.cbtn_close.Text = "Выход";
             this.cbtn_close.Click += new System.EventHandler(this.cbtn_close_Click);
             // 
@@ -305,12 +315,18 @@
             this.uploadLocalTimer.Interval = 10000;
             this.uploadLocalTimer.Tick += new System.EventHandler(this.uploadLocalTimer_Tick);
             // 
-            // cbtnStartSoft
+            // cbtnSendTxt
             // 
-            this.cbtnStartSoft.Name = "cbtnStartSoft";
-            this.cbtnStartSoft.Size = new System.Drawing.Size(239, 22);
-            this.cbtnStartSoft.Text = "Запускать ПО";
-            this.cbtnStartSoft.Click += new System.EventHandler(this.cbtnStartSoft_Click);
+            this.cbtnSendTxt.Name = "cbtnSendTxt";
+            this.cbtnSendTxt.Size = new System.Drawing.Size(248, 22);
+            this.cbtnSendTxt.Text = "Отправлять TXT чеки на сервер";
+            this.cbtnSendTxt.Click += new System.EventHandler(this.cbtnSendTxt_Click);
+            // 
+            // uploadTxtTimer
+            // 
+            this.uploadTxtTimer.Enabled = true;
+            this.uploadTxtTimer.Interval = 10000;
+            this.uploadTxtTimer.Tick += new System.EventHandler(this.UploadTxtTimer_Tick);
             // 
             // frmMain
             // 
@@ -374,6 +390,8 @@
         private System.Windows.Forms.ToolStripMenuItem cbtnCheckGC;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem cbtnStartSoft;
+        private System.Windows.Forms.ToolStripMenuItem cbtnSendTxt;
+        private System.Windows.Forms.Timer uploadTxtTimer;
     }
 }
 

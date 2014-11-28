@@ -38,7 +38,7 @@ namespace Hvylya_Worker
                 Set.fpserver.SalesPath == "SalesPath" || Set.localdirs.InPath == "InPath" || Set.localdirs.OutPath == "OutPath" ||
                 Set.localdirs.SalesPath == "SalesPath" || Set.localdirs.CommandPath == "CommandPath" ||
                 Set.softwareupdater.UpdateGoup == "UpdateGoup" || Set.softwareupdater.FTPServer == "FTPServer" ||
-                Set.softwareupdater.FTPPassword == "FTPPassword" || Set.uploader.SalesDir == "SalesDir" || 
+                Set.softwareupdater.FTPPassword == "FTPPassword" || Set.uploader.SalesDir == "SalesDir" || Set.uploader.TxtSalesDir == "TxtSalesDir" ||
                 Set.softwareupdater.FTPLogin == "FTPLogin")
             {
                 return false;
@@ -70,6 +70,7 @@ namespace Hvylya_Worker
             Offline = true;
             sendF = true;
             sendSC = true;
+            sendTxt = false;
             checkGC = true;
             checkUpdates = true;
             Autostart = true;
@@ -97,6 +98,7 @@ namespace Hvylya_Worker
         public string[] Autorun { get; set; }
         public string TimeServer { get; set; }
         public bool fullLogs { get; set; }
+        public bool sendTxt { get; set; }
     }
 
     public class FPServer
@@ -158,7 +160,9 @@ namespace Hvylya_Worker
         public Uploader()
         {
             SalesDir = "SalesDir";
+            TxtSalesDir = "TxtSalesDir";
         }
         public string SalesDir { get; set; }
+        public string TxtSalesDir { get; set; }
     }
 }

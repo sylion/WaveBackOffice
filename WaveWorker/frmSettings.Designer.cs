@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.gbMain = new System.Windows.Forms.GroupBox();
+            this.cbStartSoft = new System.Windows.Forms.CheckBox();
             this.cbCheckGC = new System.Windows.Forms.CheckBox();
             this.cbUploadF = new System.Windows.Forms.CheckBox();
             this.cbUpload = new System.Windows.Forms.CheckBox();
@@ -67,6 +68,8 @@
             this.tbSMcards = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbChTxtSales = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tbChSales = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -80,7 +83,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.numFPS = new System.Windows.Forms.NumericUpDown();
             this.chkFullLogs = new System.Windows.Forms.CheckBox();
-            this.cbStartSoft = new System.Windows.Forms.CheckBox();
+            this.cbTxtUpload = new System.Windows.Forms.CheckBox();
             this.gbMain.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -96,6 +99,7 @@
             // 
             // gbMain
             // 
+            this.gbMain.Controls.Add(this.cbTxtUpload);
             this.gbMain.Controls.Add(this.cbStartSoft);
             this.gbMain.Controls.Add(this.cbCheckGC);
             this.gbMain.Controls.Add(this.cbUploadF);
@@ -105,15 +109,25 @@
             this.gbMain.Controls.Add(this.cbAutorun);
             this.gbMain.Location = new System.Drawing.Point(12, 12);
             this.gbMain.Name = "gbMain";
-            this.gbMain.Size = new System.Drawing.Size(257, 114);
+            this.gbMain.Size = new System.Drawing.Size(257, 135);
             this.gbMain.TabIndex = 0;
             this.gbMain.TabStop = false;
             this.gbMain.Text = "Основные";
             // 
+            // cbStartSoft
+            // 
+            this.cbStartSoft.AutoSize = true;
+            this.cbStartSoft.Location = new System.Drawing.Point(151, 39);
+            this.cbStartSoft.Name = "cbStartSoft";
+            this.cbStartSoft.Size = new System.Drawing.Size(98, 17);
+            this.cbStartSoft.TabIndex = 6;
+            this.cbStartSoft.Text = "Запускать ПО";
+            this.cbStartSoft.UseVisualStyleBackColor = true;
+            // 
             // cbCheckGC
             // 
             this.cbCheckGC.AutoSize = true;
-            this.cbCheckGC.Location = new System.Drawing.Point(7, 96);
+            this.cbCheckGC.Location = new System.Drawing.Point(7, 117);
             this.cbCheckGC.Name = "cbCheckGC";
             this.cbCheckGC.Size = new System.Drawing.Size(174, 17);
             this.cbCheckGC.TabIndex = 5;
@@ -123,7 +137,7 @@
             // cbUploadF
             // 
             this.cbUploadF.AutoSize = true;
-            this.cbUploadF.Location = new System.Drawing.Point(7, 78);
+            this.cbUploadF.Location = new System.Drawing.Point(7, 99);
             this.cbUploadF.Name = "cbUploadF";
             this.cbUploadF.Size = new System.Drawing.Size(179, 17);
             this.cbUploadF.TabIndex = 4;
@@ -133,7 +147,7 @@
             // cbUpload
             // 
             this.cbUpload.AutoSize = true;
-            this.cbUpload.Location = new System.Drawing.Point(7, 59);
+            this.cbUpload.Location = new System.Drawing.Point(7, 80);
             this.cbUpload.Name = "cbUpload";
             this.cbUpload.Size = new System.Drawing.Size(166, 17);
             this.cbUpload.TabIndex = 3;
@@ -173,7 +187,7 @@
             // 
             // tbTimeServer
             // 
-            this.tbTimeServer.Location = new System.Drawing.Point(381, 344);
+            this.tbTimeServer.Location = new System.Drawing.Point(381, 359);
             this.tbTimeServer.Name = "tbTimeServer";
             this.tbTimeServer.Size = new System.Drawing.Size(139, 20);
             this.tbTimeServer.TabIndex = 5;
@@ -181,7 +195,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(281, 347);
+            this.label21.Location = new System.Drawing.Point(281, 362);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(94, 13);
             this.label21.TabIndex = 4;
@@ -197,7 +211,7 @@
             this.groupBox1.Controls.Add(this.tbCommand);
             this.groupBox1.Controls.Add(this.tbOut);
             this.groupBox1.Controls.Add(this.tbIn);
-            this.groupBox1.Location = new System.Drawing.Point(12, 126);
+            this.groupBox1.Location = new System.Drawing.Point(12, 148);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(257, 129);
             this.groupBox1.TabIndex = 1;
@@ -323,7 +337,7 @@
             this.groupBox3.Controls.Add(this.tbUpPwd);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.tbUpGroup);
-            this.groupBox3.Location = new System.Drawing.Point(12, 257);
+            this.groupBox3.Location = new System.Drawing.Point(12, 279);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(257, 122);
             this.groupBox3.TabIndex = 3;
@@ -333,7 +347,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 98);
+            this.label8.Location = new System.Drawing.Point(6, 98);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 15;
@@ -349,7 +363,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 72);
+            this.label9.Location = new System.Drawing.Point(6, 72);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 14;
@@ -365,7 +379,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(9, 45);
+            this.label10.Location = new System.Drawing.Point(6, 45);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 13;
@@ -382,7 +396,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 20);
+            this.label11.Location = new System.Drawing.Point(6, 20);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 13);
             this.label11.TabIndex = 12;
@@ -442,14 +456,32 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.tbChTxtSales);
             this.groupBox5.Controls.Add(this.label17);
             this.groupBox5.Controls.Add(this.tbChSales);
             this.groupBox5.Location = new System.Drawing.Point(275, 164);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(257, 52);
+            this.groupBox5.Size = new System.Drawing.Size(257, 69);
             this.groupBox5.TabIndex = 16;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Модуль отправки чеков";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 46);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 13);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "TXT Sales:";
+            // 
+            // tbChTxtSales
+            // 
+            this.tbChTxtSales.Location = new System.Drawing.Point(69, 43);
+            this.tbChTxtSales.Name = "tbChTxtSales";
+            this.tbChTxtSales.Size = new System.Drawing.Size(176, 20);
+            this.tbChTxtSales.TabIndex = 16;
             // 
             // label17
             // 
@@ -469,7 +501,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(457, 378);
+            this.btnSave.Location = new System.Drawing.Point(457, 405);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 17;
@@ -487,7 +519,7 @@
             this.groupBox6.Controls.Add(this.numChecks);
             this.groupBox6.Controls.Add(this.label1);
             this.groupBox6.Controls.Add(this.numFPS);
-            this.groupBox6.Location = new System.Drawing.Point(275, 220);
+            this.groupBox6.Location = new System.Drawing.Point(275, 235);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(257, 118);
             this.groupBox6.TabIndex = 6;
@@ -585,28 +617,28 @@
             // chkFullLogs
             // 
             this.chkFullLogs.AutoSize = true;
-            this.chkFullLogs.Location = new System.Drawing.Point(19, 384);
+            this.chkFullLogs.Location = new System.Drawing.Point(19, 409);
             this.chkFullLogs.Name = "chkFullLogs";
             this.chkFullLogs.Size = new System.Drawing.Size(163, 17);
             this.chkFullLogs.TabIndex = 18;
             this.chkFullLogs.Text = "Расширенное логирование";
             this.chkFullLogs.UseVisualStyleBackColor = true;
             // 
-            // cbStartSoft
+            // cbTxtUpload
             // 
-            this.cbStartSoft.AutoSize = true;
-            this.cbStartSoft.Location = new System.Drawing.Point(151, 39);
-            this.cbStartSoft.Name = "cbStartSoft";
-            this.cbStartSoft.Size = new System.Drawing.Size(98, 17);
-            this.cbStartSoft.TabIndex = 6;
-            this.cbStartSoft.Text = "Запускать ПО";
-            this.cbStartSoft.UseVisualStyleBackColor = true;
+            this.cbTxtUpload.AutoSize = true;
+            this.cbTxtUpload.Location = new System.Drawing.Point(7, 59);
+            this.cbTxtUpload.Name = "cbTxtUpload";
+            this.cbTxtUpload.Size = new System.Drawing.Size(190, 17);
+            this.cbTxtUpload.TabIndex = 7;
+            this.cbTxtUpload.Text = "Отправлять TXT чеки на сервер";
+            this.cbTxtUpload.UseVisualStyleBackColor = true;
             // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 403);
+            this.ClientSize = new System.Drawing.Size(546, 433);
             this.Controls.Add(this.chkFullLogs);
             this.Controls.Add(this.tbTimeServer);
             this.Controls.Add(this.groupBox6);
@@ -620,7 +652,6 @@
             this.Controls.Add(this.gbMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(562, 442);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(562, 442);
             this.Name = "frmSettings";
@@ -704,5 +735,8 @@
         private System.Windows.Forms.CheckBox cbUpload;
         private System.Windows.Forms.CheckBox cbCheckGC;
         private System.Windows.Forms.CheckBox cbStartSoft;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox tbChTxtSales;
+        private System.Windows.Forms.CheckBox cbTxtUpload;
     }
 }

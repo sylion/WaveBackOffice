@@ -4,7 +4,7 @@ using ICSharpCode.SharpZipLib.Zip;
 
 namespace Hvylya_Worker
 {
-    static class sFTP
+    static class Put
     {
         public static string checkGC(Settings set)
         {
@@ -16,7 +16,7 @@ namespace Hvylya_Worker
                 string fileFilter = null;
                 string answer = "", rattr = "";
 
-                //Goods
+                #region Goods
                 rattr = File.GetLastWriteTime(set.baseupdater.goodsDir + "\\GOODS.ZIP").ToString();
                 if (File.Exists(set.localdirs.InPath + "\\GOODS.ZIP"))
                 {
@@ -37,11 +37,12 @@ namespace Hvylya_Worker
                     File.Move(set.localdirs.CommandPath + "\\req1.tmp", set.localdirs.CommandPath + "\\req1");
                     OK = false;
                 }
-                //Cards
-                rattr = File.GetLastWriteTime(set.baseupdater.cardsDir + "\\CARDS.ZIP").ToString();
-                if (File.Exists(set.localdirs.InPath + "\\CARDS.ZIP"))
+                #endregion
+                #region Cards
+                rattr = File.GetLastWriteTime(set.baseupdater.cardsDir + "\\CARDS.TXT").ToString();
+                if (File.Exists(set.localdirs.InPath + "\\CARDS.TXT"))
                 {
-                    if (rattr != File.GetLastWriteTime(set.localdirs.InPath + "\\CARDS.ZIP").ToString())
+                    if (rattr != File.GetLastWriteTime(set.localdirs.InPath + "\\CARDS.TXT").ToString())
                         OK = true;
                 }
                 else
@@ -49,23 +50,25 @@ namespace Hvylya_Worker
 
                 if (OK)
                 {
-                    //Download and unpack cards
-                    File.Copy(set.baseupdater.cardsDir + "\\CARDS.ZIP", set.localdirs.InPath + "\\CARDS.ZIP", true);
-                    File.SetLastWriteTime(set.localdirs.InPath + "\\CARDS.ZIP", DateTime.Parse(rattr));
+                    //Download cards
+                    File.Copy(set.baseupdater.cardsDir + "\\CARDS.TXT", set.localdirs.InPath + "\\CARDS.TXT", true);
+                    File.SetLastWriteTime(set.localdirs.InPath + "\\CARDS.TXT", DateTime.Parse(rattr));
                     answer += " - Справочник дисконтных карт обновлен - " + rattr + "\n";
-                    fastZip.ExtractZip(set.localdirs.InPath + "\\CARDS.ZIP", set.localdirs.InPath, fileFilter);
+                    //fastZip.ExtractZip(set.localdirs.InPath + "\\CARDS.ZIP", set.localdirs.InPath, fileFilter);
                     using (File.Create(set.localdirs.CommandPath + "\\req5.tmp")) { }
                     File.Move(set.localdirs.CommandPath + "\\req5.tmp", set.localdirs.CommandPath + "\\req5");
                     OK = false;
                 }
                 frmMain.checkStarted = false;
                 return answer;
+                #endregion
             }
             catch (Exception e)
             {
                 frmMain.checkStarted = false;
                 return e.Message;
             }
+               
         }
 
         public static string putChecks(Settings set)
@@ -99,6 +102,37 @@ namespace Hvylya_Worker
                 }
             }
             frmMain.sendStarted = false;
+            return "";
+        }
+
+        public static string putTxtChecks(Settings set)
+        {
+            frmMain.sendTxtStarted = true;
+            string[] files = Directory.GetFiles(set.localdirs.SalesPath, "*.txt");
+            System.Threading.Thread.Sleep(1000);
+            if (files.Length > 0)
+            {
+                try
+                {
+                    string tmpName = "";
+                    for (int i = 0; i < files.Length; i++)
+                    {
+                        tmpName = set.uploader.TxtSalesDir + "\\" + Path.GetFileName(files[i]) + ".tmp";
+                        File.Copy(files[i], tmpName, true);
+                        File.Move(tmpName, tmpName.Replace(".tmp", ""));
+                        File.Delete(files[i]);
+                        files[i] = null;
+                    }
+                    frmMain.sendTxtStarted = false;
+                    return "";
+                }
+                catch (Exception e)
+                {
+                    frmMain.sendTxtStarted = false;
+                    return e.Message;
+                }
+            }
+            frmMain.sendTxtStarted = false;
             return "";
         }
 
