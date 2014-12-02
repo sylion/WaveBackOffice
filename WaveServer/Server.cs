@@ -22,6 +22,9 @@ namespace WaveServer
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Запуск сервера
+        /// </summary>
         protected override void OnStart(string[] args)
         {
             doTimer.Elapsed += doTimer_Elapsed;
@@ -34,6 +37,9 @@ namespace WaveServer
             AddLog("Сервис успешно запущен", 0);
         }
 
+        /// <summary>
+        /// Таймер событий
+        /// </summary>
         void doTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             DataTable DT = db.getDT("SELECT * FROM `scheduler_tasks` WHERE `operation_id` = 1 AND `doit` = 1;");
@@ -44,6 +50,9 @@ namespace WaveServer
             }
         }
 
+        /// <summary>
+        /// Обновление справочника дисконтных карт
+        /// </summary>
         private void UpdateCardsDir()
         {
             Update = true;
@@ -56,8 +65,8 @@ namespace WaveServer
                 {
                     if (GetCardCode(r["card_id"].ToString()) != "")
                     {
-                        Cards += r["card_id"].ToString() + "," + GetCardCode(r["card_id"].ToString()) + "," + r["fixperc"].ToString() + "," + r["last_name"].ToString() +
-                            "," + r["first_name"].ToString() + "," + r["middle_name"].ToString() +
+                        Cards += r["card_id"].ToString() + "," + GetCardCode(r["card_id"].ToString()) + "," + r["fixperc"].ToString() + "," + r["last_name"].ToString().Replace(",","") +
+                            "," + r["first_name"].ToString().Replace(",", "") + "," + r["middle_name"].ToString().Replace(",", "") +
                             "," + r["status"].ToString() + "," + r["category"].ToString() + "," + r["comment"].ToString() + "," + r["commentmode"].ToString() + ",0\r\n";
                     }
                 }
@@ -87,7 +96,10 @@ namespace WaveServer
                     AddLog("Ошибка: " + e.Message, 1);
                 }
             }
-            File.WriteAllText(set.IniReadValue("Set", "DirToCards") + "\\CARDS.txt", Cards, Encoding.Default);
+            File.WriteAllText(set.IniReadValue("Set", "DirToCards") + "\\CARDS.txt.tmp", Cards, Encoding.Default);
+            if (File.Exists(set.IniReadValue("Set", "DirToCards") + "\\CARDS.txt"))
+                File.Delete(set.IniReadValue("Set", "DirToCards") + "\\CARDS.txt");
+            File.Move(set.IniReadValue("Set", "DirToCards") + "\\CARDS.txt.tmp", set.IniReadValue("Set", "DirToCards") + "\\CARDS.txt");
             Query = "DELETE FROM `scheduler_tasks` WHERE `operation_id` = 1 AND `doit` = 1;";
             Query += "INSERT INTO `scheduler_tasks_done` VALUES (1, UNIX_TIMESTAMP(), 0, 0, 0, 1) ON DUPLICATE KEY UPDATE `update_time` = UNIX_TIMESTAMP();";
             db.Execute(Query);
@@ -95,6 +107,11 @@ namespace WaveServer
             Update = false;
         }
 
+        /// <summary>
+        /// Построение штрих-кода карты (без проверочного символа)
+        /// </summary>
+        /// <param name="CardID">Код карты</param>
+        /// <returns>Штрих-код карта</returns>
         private string GetCardCode(string CardID)
         {
             try
@@ -125,6 +142,9 @@ namespace WaveServer
         //8("Comment")
         //9("CommentMode")
 
+        /// <summary>
+        /// Завершение работы службы
+        /// </summary>
         protected override void OnStop()
         {
             doTimer.Enabled = false;
@@ -132,6 +152,11 @@ namespace WaveServer
             AddLog("Сервис остановлен!", 0);
         }
 
+        /// <summary>
+        /// Логирование работы службы
+        /// </summary>
+        /// <param name="log">Текст сообщения</param>
+        /// <param name="Type">Тип сообщения (0 - Информация; 1 - Ошибка; 2 - Предупреждение)</param>
         public void AddLog(string log, int Type)
         {
             try
