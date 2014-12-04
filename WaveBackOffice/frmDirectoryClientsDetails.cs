@@ -377,8 +377,8 @@ namespace WaveBackOffice
         {
             if (tbNewCardID.Text.Length > 0)
             {
-                string Query = "INSERT INTO directory_account_cards (`account_id`,`card_id`, `use_bonus`, `is_active`,`date_activate`) VALUES (" + id + ", '" + tbNewCardID.Text +
-                    "', 1, 1, '" + UnixTime.ToUnixTimestamp(DateTime.Now.ToUniversalTime()).ToString() + "');";
+                string Query = "INSERT INTO directory_account_cards (`account_id`,`card_id`, `use_bonus`, `status`,`date_activate`) VALUES (" + id + ", '" + tbNewCardID.Text +
+                    "', 1, " + cbCardStatus.SelectedIndex + ", '" + UnixTime.ToUnixTimestamp(DateTime.Now.ToUniversalTime()).ToString() + "');";
                 Query += db.GetLogQuery((int)Modules.DirClients, id, 4, WaveBackOffice.Properties.Settings.Default.CurrentUserID, "Карта #" + tbNewCardID.Text);
                 if (db.Execute(Query))
                 {

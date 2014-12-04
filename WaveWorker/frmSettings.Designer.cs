@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.gbMain = new System.Windows.Forms.GroupBox();
+            this.cbTxtUpload = new System.Windows.Forms.CheckBox();
             this.cbStartSoft = new System.Windows.Forms.CheckBox();
             this.cbCheckGC = new System.Windows.Forms.CheckBox();
             this.cbUploadF = new System.Windows.Forms.CheckBox();
@@ -83,7 +84,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.numFPS = new System.Windows.Forms.NumericUpDown();
             this.chkFullLogs = new System.Windows.Forms.CheckBox();
-            this.cbTxtUpload = new System.Windows.Forms.CheckBox();
             this.gbMain.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -113,6 +113,17 @@
             this.gbMain.TabIndex = 0;
             this.gbMain.TabStop = false;
             this.gbMain.Text = "Основные";
+            // 
+            // cbTxtUpload
+            // 
+            this.cbTxtUpload.AutoSize = true;
+            this.cbTxtUpload.Enabled = false;
+            this.cbTxtUpload.Location = new System.Drawing.Point(7, 59);
+            this.cbTxtUpload.Name = "cbTxtUpload";
+            this.cbTxtUpload.Size = new System.Drawing.Size(190, 17);
+            this.cbTxtUpload.TabIndex = 7;
+            this.cbTxtUpload.Text = "Отправлять TXT чеки на сервер";
+            this.cbTxtUpload.UseVisualStyleBackColor = true;
             // 
             // cbStartSoft
             // 
@@ -470,6 +481,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.Enabled = false;
             this.label13.Location = new System.Drawing.Point(6, 46);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 13);
@@ -478,6 +490,7 @@
             // 
             // tbChTxtSales
             // 
+            this.tbChTxtSales.Enabled = false;
             this.tbChTxtSales.Location = new System.Drawing.Point(69, 43);
             this.tbChTxtSales.Name = "tbChTxtSales";
             this.tbChTxtSales.Size = new System.Drawing.Size(176, 20);
@@ -623,16 +636,6 @@
             this.chkFullLogs.TabIndex = 18;
             this.chkFullLogs.Text = "Расширенное логирование";
             this.chkFullLogs.UseVisualStyleBackColor = true;
-            // 
-            // cbTxtUpload
-            // 
-            this.cbTxtUpload.AutoSize = true;
-            this.cbTxtUpload.Location = new System.Drawing.Point(7, 59);
-            this.cbTxtUpload.Name = "cbTxtUpload";
-            this.cbTxtUpload.Size = new System.Drawing.Size(190, 17);
-            this.cbTxtUpload.TabIndex = 7;
-            this.cbTxtUpload.Text = "Отправлять TXT чеки на сервер";
-            this.cbTxtUpload.UseVisualStyleBackColor = true;
             // 
             // frmSettings
             // 

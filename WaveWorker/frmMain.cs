@@ -11,7 +11,7 @@ namespace Hvylya_Worker
     {
         //
         int mypatch = 15;
-        string patchv = "20141127 0238";
+        string patchv = "20141204 1023";
         //Создание фонового потока с возможностью прерывания работы
         AbortableBackgroundWorker bwUploadChecks = new AbortableBackgroundWorker();
         AbortableBackgroundWorker bwUploadTxtChecks = new AbortableBackgroundWorker();
@@ -38,13 +38,17 @@ namespace Hvylya_Worker
         //загрузка настроек и проверка обновлений
         private void frmMain_Shown(object sender, EventArgs e)
         {
-            taskbarNotifier.SetBackgroundBitmap(Properties.Resources.skin as Bitmap, Color.FromArgb(255, 0, 255));
-            taskbarNotifier.SetCloseBitmap(Properties.Resources.close as Bitmap, Color.FromArgb(255, 0, 255), new Point(280, 8));
-            taskbarNotifier.TitleRectangle = new Rectangle(40, 9, 300, 25);
-            taskbarNotifier.ContentRectangle = new Rectangle(8, 41, 300, 160);
-            taskbarNotifier.TopMost = true;
-            label1.Text = "Текущая версия: " + patchv + ", Патч № " + mypatch;
-            this.Hide();
+            try
+            {
+                taskbarNotifier.SetBackgroundBitmap(Properties.Resources.skin as Bitmap, Color.FromArgb(255, 0, 255));
+                taskbarNotifier.SetCloseBitmap(Properties.Resources.close as Bitmap, Color.FromArgb(255, 0, 255), new Point(280, 8));
+                taskbarNotifier.TitleRectangle = new Rectangle(40, 9, 300, 25);
+                taskbarNotifier.ContentRectangle = new Rectangle(8, 41, 300, 160);
+                taskbarNotifier.TopMost = true;
+                label1.Text = "Текущая версия: " + patchv + ", Патч № " + mypatch;
+                this.Hide();
+            }
+            catch { }
 
             //Запуск проверки обновлений
             if (set.main.checkUpdates)
@@ -72,8 +76,8 @@ namespace Hvylya_Worker
             uploadLocalTimer.Start();
             uploadTimer.Enabled = true;
             uploadTimer.Start();
-            uploadTxtTimer.Enabled = true;
-            uploadTxtTimer.Start();
+            //uploadTxtTimer.Enabled = true;
+            //uploadTxtTimer.Start();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -164,11 +168,11 @@ namespace Hvylya_Worker
                 set.main.Offline = true;
                 SetErrorTimer.Start();
             }
-            cbtnSendTxt.Checked = set.main.sendTxt;
-            if (set.main.sendTxt)
-                log.AppendText(DateTime.Now.ToLongTimeString() + " - Отправка TXT чеков на сервер включена!\n");
-            else
-                log.AppendText(DateTime.Now.ToLongTimeString() + " - Отправка TXT чеков на сервер выключена!\n");
+            //cbtnSendTxt.Checked = set.main.sendTxt;
+            ///if (set.main.sendTxt)
+            //    log.AppendText(DateTime.Now.ToLongTimeString() + " - Отправка TXT чеков на сервер включена!\n");
+            //else
+            //    log.AppendText(DateTime.Now.ToLongTimeString() + " - Отправка TXT чеков на сервер выключена!\n");
             cbtnSendSC.Checked = set.main.sendSC;
             if (set.main.sendSC)
                 log.AppendText(DateTime.Now.ToLongTimeString() + " - Отправка чеков на сервер включена!\n");
@@ -190,14 +194,14 @@ namespace Hvylya_Worker
             if (set.main.Offline)
             {
                 log.AppendText(DateTime.Now.ToLongTimeString() + " - Режим offline включен!\n");
-                cbtnCheckGC.Enabled = cbtnSendF.Enabled = cbtnSendSC.Enabled = cbtnSendTxt.Enabled = false;
+                cbtnCheckGC.Enabled = cbtnSendF.Enabled = cbtnSendSC.Enabled = false; //cbtnSendTxt.Enabled = false;
                 DoWhatYouDo.Stop();
                 FPErrorTimer.Stop();
             }
             else
             {
                 log.AppendText(DateTime.Now.ToLongTimeString() + " - Режим offline выключен!\n");
-                cbtnCheckGC.Enabled = cbtnSendF.Enabled = cbtnSendSC.Enabled = cbtnSendTxt.Enabled = true;
+                cbtnCheckGC.Enabled = cbtnSendF.Enabled = cbtnSendSC.Enabled = true; //cbtnSendTxt.Enabled = true;
                 DoWhatYouDo.Start();
                 FPErrorTimer.Start();
             }
@@ -246,7 +250,7 @@ namespace Hvylya_Worker
         }
         private void cbtnSendTxt_Click(object sender, EventArgs e)
         {
-            set.main.sendTxt = !set.main.sendTxt;
+            //set.main.sendTxt = !set.main.sendTxt;
             ApplySet();
         }
         private void cbtnSendSC_Click(object sender, EventArgs e)
@@ -310,7 +314,11 @@ namespace Hvylya_Worker
         //Settings Error timer
         private void SetErrorTimer_Tick(object sender, EventArgs e)
         {
-            taskbarNotifier.Show("Ошибка загрузки настроек", "Ошибка загрузки настроек.\nПереход в режим Offline.\nУстановите настройки вручную!!!", 500, 3000, 500);
+            try
+            {
+                taskbarNotifier.Show("Ошибка загрузки настроек", "Ошибка загрузки настроек.\nПереход в режим Offline.\nУстановите настройки вручную!!!", 500, 3000, 500);
+            }
+            catch { }
         }
         //Сообщение ошибки ФП сервера
         private void FPErrorTimer_Tick(object sender, EventArgs e)
@@ -319,14 +327,22 @@ namespace Hvylya_Worker
             {
                 if (!FPServerRun && set.fpserver.ServerAddress.Trim() != "" && set.fpserver.ServerAddress != null)
                 {
-                    taskbarNotifier.Show("Ошибка", "Фискальный регистратор не доступен.\nВозможно программа не запущена\n или неверно введен адрес: " + set.fpserver.ServerAddress, 500, 3000, 500);
+                    try
+                    {
+                        taskbarNotifier.Show("Ошибка", "Фискальный регистратор не доступен.\nВозможно программа не запущена\n или неверно введен адрес: " + set.fpserver.ServerAddress, 500, 3000, 500);
+                    }
+                    catch { }
                 }
             }
             else
             {
                 if (FPSerrorUP)
                 {
-                    taskbarNotifier.Show("FP3530T", FPSerror, 500, 3000, 500);
+                    try
+                    {
+                        taskbarNotifier.Show("FP3530T", FPSerror, 500, 3000, 500);
+                    }
+                    catch { }
                     FPSerrorUP = false;
                 }
             }
@@ -390,42 +406,42 @@ namespace Hvylya_Worker
         }
         private void UploadTxtTimer_Tick(object sender, EventArgs e)
         {
-            if (!set.main.Offline && set.main.sendTxt)
-            {
-                //Запустить если еще не запущен
-                if (!sendTxtStarted && !bwUploadTxtChecks.IsBusy)
-                {
-                    if (set.main.fullLogs)
-                        log.AppendText(DateTime.Now.ToLongTimeString() + " - Отправка TXT чеков\n");
-                    try
-                    {
-                        bwUploadTxtChecks.RunWorkerAsync();
-                        clock = 0;
-                    }
-                    catch { }
-                }
-                else
-                {
-                    clock += 1;
-                }
-                //Защита от застопорившегося бекграунд процесса
-                if (clock > 20)
-                {
-                    log.AppendText(DateTime.Now.ToLongTimeString() + " - Перегрузка счетчика отправки чеков, пытаюсь принудительно закрыть соединение с сервером и открыть новое... \n");
-                    bwUploadTxtChecks.Abort();
-                    bwUploadTxtChecks.CancelAsync();
-                    bwUploadTxtChecks.Dispose();
-                    clock = 0;
-                    try
-                    {
-                        bwUploadTxtChecks.RunWorkerAsync();
-                    }
-                    catch
-                    {
-                        log.AppendText(DateTime.Now.ToLongTimeString() + " - Ошибка, не удалось завершить старый поток отправки чеков... \n");
-                    }
-                }
-            }
+            //if (!set.main.Offline && set.main.sendTxt)
+            //{
+            //    //Запустить если еще не запущен
+            //    if (!sendTxtStarted && !bwUploadTxtChecks.IsBusy)
+            //    {
+            //        if (set.main.fullLogs)
+            //            log.AppendText(DateTime.Now.ToLongTimeString() + " - Отправка TXT чеков\n");
+            //        try
+            //        {
+            //            bwUploadTxtChecks.RunWorkerAsync();
+            //            clock = 0;
+            //        }
+            //        catch { }
+            //    }
+            //    else
+            //    {
+            //        clock += 1;
+            //    }
+            //    //Защита от застопорившегося бекграунд процесса
+            //    if (clock > 20)
+            //    {
+            //        log.AppendText(DateTime.Now.ToLongTimeString() + " - Перегрузка счетчика отправки чеков, пытаюсь принудительно закрыть соединение с сервером и открыть новое... \n");
+            //        bwUploadTxtChecks.Abort();
+            //        bwUploadTxtChecks.CancelAsync();
+            //        bwUploadTxtChecks.Dispose();
+            //        clock = 0;
+            //        try
+            //        {
+            //            bwUploadTxtChecks.RunWorkerAsync();
+            //        }
+            //        catch
+            //        {
+            //            log.AppendText(DateTime.Now.ToLongTimeString() + " - Ошибка, не удалось завершить старый поток отправки чеков... \n");
+            //        }
+            //    }
+            //}
         }
         private void uploadLocalTimer_Tick(object sender, EventArgs e)
         {
@@ -480,19 +496,19 @@ namespace Hvylya_Worker
         //Отправка txt чеков на сервер
         void bwUploadTxtChecks_DoWork(object sender, DoWorkEventArgs e)
         {
-            string tmpError;
-            tmpError = Put.putTxtChecks(set);
-            if (tmpError != "")
-            {
-                try
-                {
-                    this.BeginInvoke(new AppendLog(log.AppendText), DateTime.Now.ToLongTimeString() + " - ошибка при отправке чеков на сервер:\n");
-                    this.BeginInvoke(new AppendLog(log.AppendText), " - - -\n");
-                    this.BeginInvoke(new AppendLog(log.AppendText), tmpError + "\n");
-                    this.BeginInvoke(new AppendLog(log.AppendText), " - - -\n");
-                }
-                catch { }
-            }
+            //string tmpError;
+            //tmpError = Put.putTxtChecks(set);
+            //if (tmpError != "")
+            //{
+            //    try
+            //    {
+            //        this.BeginInvoke(new AppendLog(log.AppendText), DateTime.Now.ToLongTimeString() + " - ошибка при отправке чеков на сервер:\n");
+            //        this.BeginInvoke(new AppendLog(log.AppendText), " - - -\n");
+            //        this.BeginInvoke(new AppendLog(log.AppendText), tmpError + "\n");
+            //        this.BeginInvoke(new AppendLog(log.AppendText), " - - -\n");
+            //    }
+            //    catch { }
+            //}
         }
         //Отправка чеков
         private void bwUploadChecks_DoWork(object sender, DoWorkEventArgs e)
@@ -560,13 +576,17 @@ namespace Hvylya_Worker
         //Сохранения лога каждые 30 минут
         private void saveLog_Tick(object sender, EventArgs e)
         {
-            if (!Directory.Exists(Directory.GetCurrentDirectory() + "\\log"))
-                Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\log");
-            if (!File.Exists(Directory.GetCurrentDirectory() + "\\log\\" + DateTime.Now.ToShortDateString() + ".log"))
-                using (File.Create(Directory.GetCurrentDirectory() + "\\log\\" + DateTime.Now.ToShortDateString() + ".log")) { }
-            File.WriteAllLines(Directory.GetCurrentDirectory() + "\\log\\" + DateTime.Now.ToShortDateString() + ".log", log.Lines);
-            if (set.main.fullLogs)
-                log.AppendText(DateTime.Now.ToLongTimeString() + " - log работы сохранен! \n");
+            try
+            {
+                if (!Directory.Exists(Directory.GetCurrentDirectory() + "\\log"))
+                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\log");
+                if (!File.Exists(Directory.GetCurrentDirectory() + "\\log\\" + DateTime.Now.ToShortDateString() + ".log"))
+                    using (File.Create(Directory.GetCurrentDirectory() + "\\log\\" + DateTime.Now.ToShortDateString() + ".log")) { }
+                File.WriteAllLines(Directory.GetCurrentDirectory() + "\\log\\" + DateTime.Now.ToShortDateString() + ".log", log.Lines);
+                if (set.main.fullLogs)
+                    log.AppendText(DateTime.Now.ToLongTimeString() + " - log работы сохранен! \n");
+            }
+            catch { }
         }
         //=========================================================================
     }

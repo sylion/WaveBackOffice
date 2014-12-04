@@ -107,32 +107,32 @@ namespace Hvylya_Worker
 
         public static string putTxtChecks(Settings set)
         {
-            frmMain.sendTxtStarted = true;
-            string[] files = Directory.GetFiles(set.localdirs.SalesPath, "*.txt");
-            System.Threading.Thread.Sleep(1000);
-            if (files.Length > 0)
-            {
-                try
-                {
-                    string tmpName = "";
-                    for (int i = 0; i < files.Length; i++)
-                    {
-                        tmpName = set.uploader.TxtSalesDir + "\\" + Path.GetFileName(files[i]) + ".tmp";
-                        File.Copy(files[i], tmpName, true);
-                        File.Move(tmpName, tmpName.Replace(".tmp", ""));
-                        File.Delete(files[i]);
-                        files[i] = null;
-                    }
-                    frmMain.sendTxtStarted = false;
-                    return "";
-                }
-                catch (Exception e)
-                {
-                    frmMain.sendTxtStarted = false;
-                    return e.Message;
-                }
-            }
-            frmMain.sendTxtStarted = false;
+            //frmMain.sendTxtStarted = true;
+            //string[] files = Directory.GetFiles(set.localdirs.SalesPath, "*.txt");
+            //System.Threading.Thread.Sleep(1000);
+            //if (files.Length > 0)
+            //{
+            //    try
+            //    {
+            //        string tmpName = "";
+            //        for (int i = 0; i < files.Length; i++)
+            //        {
+            //            tmpName = set.uploader.TxtSalesDir + "\\" + Path.GetFileName(files[i]) + ".tmp";
+            //            File.Copy(files[i], tmpName, true);
+            //            File.Move(tmpName, tmpName.Replace(".tmp", ""));
+            //            File.Delete(files[i]);
+            //            files[i] = null;
+            //        }
+            //        frmMain.sendTxtStarted = false;
+            //        return "";
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        frmMain.sendTxtStarted = false;
+            //        return e.Message;
+            //    }
+            //}
+            //frmMain.sendTxtStarted = false;
             return "";
         }
 

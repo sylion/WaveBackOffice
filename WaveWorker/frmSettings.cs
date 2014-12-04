@@ -20,7 +20,7 @@ namespace Hvylya_Worker
             cbOffline.Checked = set.main.Offline;
             cbCheckUpdates.Checked = set.main.checkUpdates;
             cbUpload.Checked = set.main.sendSC;
-            cbTxtUpload.Checked = set.main.sendTxt;
+            //cbTxtUpload.Checked = set.main.sendTxt;
             cbUploadF.Checked = set.main.sendF;
             cbCheckGC.Checked = set.main.checkGC;
             cbStartSoft.Checked = set.main.startSoft;
@@ -48,7 +48,7 @@ namespace Hvylya_Worker
             tbSMcards.Text = set.baseupdater.cardsDir;
             //Uploader
             tbChSales.Text = set.uploader.SalesDir;
-            tbChTxtSales.Text = set.uploader.TxtSalesDir;
+            //tbChTxtSales.Text = set.uploader.TxtSalesDir;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace Hvylya_Worker
             set.main.Autostart = cbAutorun.Checked;
             set.main.Offline = cbOffline.Checked;
             set.main.sendSC = cbUpload.Checked;
-            set.main.sendTxt = cbTxtUpload.Checked;
+            //set.main.sendTxt = cbTxtUpload.Checked;
             set.main.sendF = cbUploadF.Checked;
             set.main.checkUpdates = cbCheckUpdates.Checked;
             set.main.startSoft = cbStartSoft.Checked;
@@ -92,7 +92,7 @@ namespace Hvylya_Worker
             set.baseupdater.cardsDir = tbSMcards.Text;
             //Uploader
             set.uploader.SalesDir = tbChSales.Text;
-            set.uploader.TxtSalesDir = tbChTxtSales.Text;
+            //set.uploader.TxtSalesDir = tbChTxtSales.Text;
             frm.set = set;
             DialogResult res = new DialogResult();
             res = System.Windows.Forms.DialogResult.OK;
@@ -101,7 +101,7 @@ namespace Hvylya_Worker
 
         private void cbOffline_CheckedChanged(object sender, EventArgs e)
         {
-            cbCheckGC.Enabled = cbUpload.Enabled = cbUploadF.Enabled = cbTxtUpload.Enabled = !cbOffline.Checked;
+            cbCheckGC.Enabled = cbUpload.Enabled = cbUploadF.Enabled = !cbOffline.Checked;
         }
     }
 }

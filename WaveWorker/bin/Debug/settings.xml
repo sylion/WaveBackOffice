@@ -17,7 +17,6 @@
     </Autorun>
     <TimeServer>10.0.1.142</TimeServer>
     <fullLogs>true</fullLogs>
-    <sendTxt>false</sendTxt>
   </main>
   <fpserver>
     <SalesPath>\\127.0.0.1\\smarket\\fpserver\\sales</SalesPath>
@@ -41,6 +40,5 @@
   </baseupdater>
   <uploader>
     <SalesDir>\\10.0.1.142\protokolpos\tmp</SalesDir>
-    <TxtSalesDir>C:\\POS</TxtSalesDir>
   </uploader>
 </Settings>

@@ -41,6 +41,7 @@
             this.cbtnStartSoft = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.cbtnOffline = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbtnSendTxt = new System.Windows.Forms.ToolStripMenuItem();
             this.cbtnSendSC = new System.Windows.Forms.ToolStripMenuItem();
             this.cbtnSendF = new System.Windows.Forms.ToolStripMenuItem();
             this.cbtnCheckGC = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +65,6 @@
             this.saveLog = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.uploadLocalTimer = new System.Windows.Forms.Timer(this.components);
-            this.cbtnSendTxt = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadTxtTimer = new System.Windows.Forms.Timer(this.components);
             this.trayContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -164,6 +164,14 @@
             this.cbtnOffline.Size = new System.Drawing.Size(248, 22);
             this.cbtnOffline.Text = "Режим Offline";
             this.cbtnOffline.Click += new System.EventHandler(this.cbtnOffline_Click);
+            // 
+            // cbtnSendTxt
+            // 
+            this.cbtnSendTxt.Enabled = false;
+            this.cbtnSendTxt.Name = "cbtnSendTxt";
+            this.cbtnSendTxt.Size = new System.Drawing.Size(248, 22);
+            this.cbtnSendTxt.Text = "Отправлять TXT чеки на сервер";
+            this.cbtnSendTxt.Click += new System.EventHandler(this.cbtnSendTxt_Click);
             // 
             // cbtnSendSC
             // 
@@ -314,13 +322,6 @@
             this.uploadLocalTimer.Enabled = true;
             this.uploadLocalTimer.Interval = 10000;
             this.uploadLocalTimer.Tick += new System.EventHandler(this.uploadLocalTimer_Tick);
-            // 
-            // cbtnSendTxt
-            // 
-            this.cbtnSendTxt.Name = "cbtnSendTxt";
-            this.cbtnSendTxt.Size = new System.Drawing.Size(248, 22);
-            this.cbtnSendTxt.Text = "Отправлять TXT чеки на сервер";
-            this.cbtnSendTxt.Click += new System.EventHandler(this.cbtnSendTxt_Click);
             // 
             // uploadTxtTimer
             // 
