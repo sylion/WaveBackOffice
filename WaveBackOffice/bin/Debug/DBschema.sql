@@ -1,24 +1,190 @@
+CREATE DATABASE `hvylya_data_server` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE TABLE `bonus_balance` (
+  `date` bigint(20) unsigned NOT NULL,
+  `account_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `starting_balance` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `bonus_credit` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `bonus_debet` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `final_balance` decimal(17,2) NOT NULL DEFAULT '0.00',
+  UNIQUE KEY `date_account` (`date`,`account_id`),
+  UNIQUE KEY `account_date` (`account_id`,`date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+/*!50100 PARTITION BY RANGE (`date`)
+(PARTITION pMINVALUE VALUES LESS THAN (1356991200) ENGINE = InnoDB,
+ PARTITION p2013_01 VALUES LESS THAN (1359669600) ENGINE = InnoDB,
+ PARTITION p2013_02 VALUES LESS THAN (1362088800) ENGINE = InnoDB,
+ PARTITION p2013_03 VALUES LESS THAN (1364767200) ENGINE = InnoDB,
+ PARTITION p2013_04 VALUES LESS THAN (1367359200) ENGINE = InnoDB,
+ PARTITION p2013_05 VALUES LESS THAN (1370037600) ENGINE = InnoDB,
+ PARTITION p2013_06 VALUES LESS THAN (1372629600) ENGINE = InnoDB,
+ PARTITION p2013_07 VALUES LESS THAN (1375308000) ENGINE = InnoDB,
+ PARTITION p2013_08 VALUES LESS THAN (1377986400) ENGINE = InnoDB,
+ PARTITION p2013_09 VALUES LESS THAN (1380578400) ENGINE = InnoDB,
+ PARTITION p2013_10 VALUES LESS THAN (1383256800) ENGINE = InnoDB,
+ PARTITION p2013_11 VALUES LESS THAN (1385848800) ENGINE = InnoDB,
+ PARTITION p2013_12 VALUES LESS THAN (1388527200) ENGINE = InnoDB,
+ PARTITION p2014_01 VALUES LESS THAN (1391205600) ENGINE = InnoDB,
+ PARTITION p2014_02 VALUES LESS THAN (1393624800) ENGINE = InnoDB,
+ PARTITION p2014_03 VALUES LESS THAN (1396303200) ENGINE = InnoDB,
+ PARTITION p2014_04 VALUES LESS THAN (1398895200) ENGINE = InnoDB,
+ PARTITION p2014_05 VALUES LESS THAN (1401573600) ENGINE = InnoDB,
+ PARTITION p2014_06 VALUES LESS THAN (1404165600) ENGINE = InnoDB,
+ PARTITION p2014_07 VALUES LESS THAN (1406844000) ENGINE = InnoDB,
+ PARTITION p2014_08 VALUES LESS THAN (1409522400) ENGINE = InnoDB,
+ PARTITION p2014_09 VALUES LESS THAN (1412114400) ENGINE = InnoDB,
+ PARTITION p2014_10 VALUES LESS THAN (1414792800) ENGINE = InnoDB,
+ PARTITION p2014_11 VALUES LESS THAN (1417384800) ENGINE = InnoDB,
+ PARTITION p2014_12 VALUES LESS THAN (1420063200) ENGINE = InnoDB,
+ PARTITION p2015_01 VALUES LESS THAN (1422741600) ENGINE = InnoDB,
+ PARTITION p2015_02 VALUES LESS THAN (1425160800) ENGINE = InnoDB,
+ PARTITION p2015_03 VALUES LESS THAN (1427839200) ENGINE = InnoDB,
+ PARTITION p2015_04 VALUES LESS THAN (1430431200) ENGINE = InnoDB,
+ PARTITION p2015_05 VALUES LESS THAN (1433109600) ENGINE = InnoDB,
+ PARTITION p2015_06 VALUES LESS THAN (1435701600) ENGINE = InnoDB,
+ PARTITION p2015_07 VALUES LESS THAN (1438380000) ENGINE = InnoDB,
+ PARTITION p2015_08 VALUES LESS THAN (1441058400) ENGINE = InnoDB,
+ PARTITION p2015_09 VALUES LESS THAN (1443650400) ENGINE = InnoDB,
+ PARTITION p2015_10 VALUES LESS THAN (1446328800) ENGINE = InnoDB,
+ PARTITION p2015_11 VALUES LESS THAN (1448920800) ENGINE = InnoDB,
+ PARTITION p2015_12 VALUES LESS THAN (1451599200) ENGINE = InnoDB,
+ PARTITION p2016_01 VALUES LESS THAN (1454277600) ENGINE = InnoDB,
+ PARTITION p2016_02 VALUES LESS THAN (1456783200) ENGINE = InnoDB,
+ PARTITION p2016_03 VALUES LESS THAN (1459461600) ENGINE = InnoDB,
+ PARTITION p2016_04 VALUES LESS THAN (1462053600) ENGINE = InnoDB,
+ PARTITION p2016_05 VALUES LESS THAN (1464732000) ENGINE = InnoDB,
+ PARTITION p2016_06 VALUES LESS THAN (1467324000) ENGINE = InnoDB,
+ PARTITION p2016_07 VALUES LESS THAN (1470002400) ENGINE = InnoDB,
+ PARTITION p2016_08 VALUES LESS THAN (1472680800) ENGINE = InnoDB,
+ PARTITION p2016_09 VALUES LESS THAN (1475272800) ENGINE = InnoDB,
+ PARTITION p2016_10 VALUES LESS THAN (1477951200) ENGINE = InnoDB,
+ PARTITION p2016_11 VALUES LESS THAN (1480543200) ENGINE = InnoDB,
+ PARTITION p2016_12 VALUES LESS THAN (1483221600) ENGINE = InnoDB,
+ PARTITION p2017_01 VALUES LESS THAN (1485900000) ENGINE = InnoDB,
+ PARTITION p2017_02 VALUES LESS THAN (1488319200) ENGINE = InnoDB,
+ PARTITION p2017_03 VALUES LESS THAN (1490997600) ENGINE = InnoDB,
+ PARTITION p2017_04 VALUES LESS THAN (1493589600) ENGINE = InnoDB,
+ PARTITION p2017_05 VALUES LESS THAN (1496268000) ENGINE = InnoDB,
+ PARTITION p2017_06 VALUES LESS THAN (1498860000) ENGINE = InnoDB,
+ PARTITION p2017_07 VALUES LESS THAN (1501538400) ENGINE = InnoDB,
+ PARTITION p2017_08 VALUES LESS THAN (1504216800) ENGINE = InnoDB,
+ PARTITION p2017_09 VALUES LESS THAN (1506808800) ENGINE = InnoDB,
+ PARTITION p2017_10 VALUES LESS THAN (1509487200) ENGINE = InnoDB,
+ PARTITION p2017_11 VALUES LESS THAN (1512079200) ENGINE = InnoDB,
+ PARTITION p2017_12 VALUES LESS THAN (1514757600) ENGINE = InnoDB,
+ PARTITION p2018_01 VALUES LESS THAN (1517436000) ENGINE = InnoDB,
+ PARTITION p2018_02 VALUES LESS THAN (1519855200) ENGINE = InnoDB,
+ PARTITION p2018_03 VALUES LESS THAN (1522533600) ENGINE = InnoDB,
+ PARTITION p2018_04 VALUES LESS THAN (1525125600) ENGINE = InnoDB,
+ PARTITION p2018_05 VALUES LESS THAN (1527804000) ENGINE = InnoDB,
+ PARTITION p2018_06 VALUES LESS THAN (1530396000) ENGINE = InnoDB,
+ PARTITION p2018_07 VALUES LESS THAN (1533074400) ENGINE = InnoDB,
+ PARTITION p2018_08 VALUES LESS THAN (1535752800) ENGINE = InnoDB,
+ PARTITION p2018_09 VALUES LESS THAN (1538344800) ENGINE = InnoDB,
+ PARTITION p2018_10 VALUES LESS THAN (1541023200) ENGINE = InnoDB,
+ PARTITION p2018_11 VALUES LESS THAN (1543615200) ENGINE = InnoDB,
+ PARTITION p2018_12 VALUES LESS THAN (1546293600) ENGINE = InnoDB,
+ PARTITION p2019_01 VALUES LESS THAN (1548972000) ENGINE = InnoDB,
+ PARTITION p2019_02 VALUES LESS THAN (1551391200) ENGINE = InnoDB,
+ PARTITION p2019_03 VALUES LESS THAN (1554069600) ENGINE = InnoDB,
+ PARTITION p2019_04 VALUES LESS THAN (1556661600) ENGINE = InnoDB,
+ PARTITION p2019_05 VALUES LESS THAN (1559340000) ENGINE = InnoDB,
+ PARTITION p2019_06 VALUES LESS THAN (1561932000) ENGINE = InnoDB,
+ PARTITION p2019_07 VALUES LESS THAN (1564610400) ENGINE = InnoDB,
+ PARTITION p2019_08 VALUES LESS THAN (1567288800) ENGINE = InnoDB,
+ PARTITION p2019_09 VALUES LESS THAN (1569880800) ENGINE = InnoDB,
+ PARTITION p2019_10 VALUES LESS THAN (1572559200) ENGINE = InnoDB,
+ PARTITION p2019_11 VALUES LESS THAN (1575151200) ENGINE = InnoDB,
+ PARTITION p2019_12 VALUES LESS THAN (1577829600) ENGINE = InnoDB,
+ PARTITION p2020_01 VALUES LESS THAN (1580508000) ENGINE = InnoDB,
+ PARTITION p2020_02 VALUES LESS THAN (1583013600) ENGINE = InnoDB,
+ PARTITION p2020_03 VALUES LESS THAN (1585692000) ENGINE = InnoDB,
+ PARTITION p2020_04 VALUES LESS THAN (1588284000) ENGINE = InnoDB,
+ PARTITION p2020_05 VALUES LESS THAN (1590962400) ENGINE = InnoDB,
+ PARTITION p2020_06 VALUES LESS THAN (1593554400) ENGINE = InnoDB,
+ PARTITION p2020_07 VALUES LESS THAN (1596232800) ENGINE = InnoDB,
+ PARTITION p2020_08 VALUES LESS THAN (1598911200) ENGINE = InnoDB,
+ PARTITION p2020_09 VALUES LESS THAN (1601503200) ENGINE = InnoDB,
+ PARTITION p2020_10 VALUES LESS THAN (1604181600) ENGINE = InnoDB,
+ PARTITION p2020_11 VALUES LESS THAN (1606773600) ENGINE = InnoDB,
+ PARTITION p2020_12 VALUES LESS THAN (1609452000) ENGINE = InnoDB,
+ PARTITION p2021_01 VALUES LESS THAN (1612130400) ENGINE = InnoDB,
+ PARTITION p2021_02 VALUES LESS THAN (1614549600) ENGINE = InnoDB,
+ PARTITION p2021_03 VALUES LESS THAN (1617228000) ENGINE = InnoDB,
+ PARTITION p2021_04 VALUES LESS THAN (1619820000) ENGINE = InnoDB,
+ PARTITION p2021_05 VALUES LESS THAN (1622498400) ENGINE = InnoDB,
+ PARTITION p2021_06 VALUES LESS THAN (1625090400) ENGINE = InnoDB,
+ PARTITION p2021_07 VALUES LESS THAN (1627768800) ENGINE = InnoDB,
+ PARTITION p2021_08 VALUES LESS THAN (1630447200) ENGINE = InnoDB,
+ PARTITION p2021_09 VALUES LESS THAN (1633039200) ENGINE = InnoDB,
+ PARTITION p2021_10 VALUES LESS THAN (1635717600) ENGINE = InnoDB,
+ PARTITION p2021_11 VALUES LESS THAN (1638309600) ENGINE = InnoDB,
+ PARTITION p2021_12 VALUES LESS THAN (1640988000) ENGINE = InnoDB,
+ PARTITION p2022_01 VALUES LESS THAN (1643666400) ENGINE = InnoDB,
+ PARTITION p2022_02 VALUES LESS THAN (1646085600) ENGINE = InnoDB,
+ PARTITION p2022_03 VALUES LESS THAN (1648764000) ENGINE = InnoDB,
+ PARTITION p2022_04 VALUES LESS THAN (1651356000) ENGINE = InnoDB,
+ PARTITION p2022_05 VALUES LESS THAN (1654034400) ENGINE = InnoDB,
+ PARTITION p2022_06 VALUES LESS THAN (1656626400) ENGINE = InnoDB,
+ PARTITION p2022_07 VALUES LESS THAN (1659304800) ENGINE = InnoDB,
+ PARTITION p2022_08 VALUES LESS THAN (1661983200) ENGINE = InnoDB,
+ PARTITION p2022_09 VALUES LESS THAN (1664575200) ENGINE = InnoDB,
+ PARTITION p2022_10 VALUES LESS THAN (1667253600) ENGINE = InnoDB,
+ PARTITION p2022_11 VALUES LESS THAN (1669845600) ENGINE = InnoDB,
+ PARTITION p2022_12 VALUES LESS THAN (1672524000) ENGINE = InnoDB,
+ PARTITION p2023_01 VALUES LESS THAN (1675202400) ENGINE = InnoDB,
+ PARTITION p2023_02 VALUES LESS THAN (1677621600) ENGINE = InnoDB,
+ PARTITION p2023_03 VALUES LESS THAN (1680300000) ENGINE = InnoDB,
+ PARTITION p2023_04 VALUES LESS THAN (1682892000) ENGINE = InnoDB,
+ PARTITION p2023_05 VALUES LESS THAN (1685570400) ENGINE = InnoDB,
+ PARTITION p2023_06 VALUES LESS THAN (1688162400) ENGINE = InnoDB,
+ PARTITION p2023_07 VALUES LESS THAN (1690840800) ENGINE = InnoDB,
+ PARTITION p2023_08 VALUES LESS THAN (1693519200) ENGINE = InnoDB,
+ PARTITION p2023_09 VALUES LESS THAN (1696111200) ENGINE = InnoDB,
+ PARTITION p2023_10 VALUES LESS THAN (1698789600) ENGINE = InnoDB,
+ PARTITION p2023_11 VALUES LESS THAN (1701381600) ENGINE = InnoDB,
+ PARTITION p2023_12 VALUES LESS THAN (1704060000) ENGINE = InnoDB,
+ PARTITION p2024_01 VALUES LESS THAN (1706738400) ENGINE = InnoDB,
+ PARTITION p2024_02 VALUES LESS THAN (1709244000) ENGINE = InnoDB,
+ PARTITION p2024_03 VALUES LESS THAN (1711922400) ENGINE = InnoDB,
+ PARTITION p2024_04 VALUES LESS THAN (1714514400) ENGINE = InnoDB,
+ PARTITION p2024_05 VALUES LESS THAN (1717192800) ENGINE = InnoDB,
+ PARTITION p2024_06 VALUES LESS THAN (1719784800) ENGINE = InnoDB,
+ PARTITION p2024_07 VALUES LESS THAN (1722463200) ENGINE = InnoDB,
+ PARTITION p2024_08 VALUES LESS THAN (1725141600) ENGINE = InnoDB,
+ PARTITION p2024_09 VALUES LESS THAN (1727733600) ENGINE = InnoDB,
+ PARTITION p2024_10 VALUES LESS THAN (1730412000) ENGINE = InnoDB,
+ PARTITION p2024_11 VALUES LESS THAN (1733004000) ENGINE = InnoDB,
+ PARTITION pMAXVALUE VALUES LESS THAN MAXVALUE ENGINE = InnoDB) */;
+
 CREATE TABLE `check_headers` (
   `time_check` bigint(20) unsigned NOT NULL,
-  `pos_id` tinyint(1) unsigned NOT NULL,
+  `pos_id` int(11) unsigned NOT NULL,
   `check_id` smallint(5) unsigned NOT NULL,
   `document_id` tinyint(1) unsigned NOT NULL,
-  `check_num` tinyint(1) unsigned NOT NULL,
-  `discard_code` int(10) unsigned NOT NULL DEFAULT '0',
-  `sale` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `reject` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `discount` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `raise` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `cash` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `check` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `credit` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `other` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `total` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `refund` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `in` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `out` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `cashsum` decimal(8,2) NOT NULL DEFAULT '0.00',
-  UNIQUE KEY `cash_check` (`time_check`,`pos_id`,`check_id`,`document_id`)
+  `check_num` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `cancel_sale_num` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `refunds_num` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `remote_operations_num` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `check_removed_num` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `discard_code` int(11) unsigned NOT NULL DEFAULT '0',
+  `sale` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `reject` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `discount` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `raise` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `cash` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `check` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `credit` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `other` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `total` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `refund` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `in` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `out` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `cashsum` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `bonus_credit` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `bonus_debet` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `orderId` int(11) unsigned NOT NULL DEFAULT '0',
+  UNIQUE KEY `cash_check` (`time_check`,`pos_id`,`check_id`,`document_id`),
+  KEY `orderId` (`orderId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY RANGE (time_check)
 (PARTITION pMINVALUE VALUES LESS THAN (1356991200) ENGINE = InnoDB,
@@ -166,34 +332,36 @@ CREATE TABLE `check_headers` (
  PARTITION p2024_10 VALUES LESS THAN (1730412000) ENGINE = InnoDB,
  PARTITION p2024_11 VALUES LESS THAN (1733004000) ENGINE = InnoDB,
  PARTITION pMAXVALUE VALUES LESS THAN MAXVALUE ENGINE = InnoDB) */;
+
 CREATE TABLE `directory_account` (
-  `account_id` int(64) NOT NULL AUTO_INCREMENT,
-  `account_bonus` double NOT NULL DEFAULT '0',
-  `account_change` double NOT NULL DEFAULT '0',
-  `account_temp` double NOT NULL DEFAULT '0',
-  `pin_code` varchar(45) NOT NULL DEFAULT '0000',
-  `category` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `fixperc` double NOT NULL DEFAULT '0',
-  `is_employee` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `is_subscribe` tinyint(1) unsigned NOT NULL DEFAULT '1',
-  `is_active` tinyint(5) unsigned NOT NULL DEFAULT '1',
-  `is_bonus` tinyint(1) NOT NULL DEFAULT '0',
-  `date_activate` int(64) DEFAULT NULL,
-  `date_deactivate` int(64) DEFAULT NULL,
-  `description` varchar(60) DEFAULT NULL,
+  `account_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'идентификатор клиента',
+  `account_bonus` decimal(17,2) NOT NULL DEFAULT '0.00' COMMENT 'Бонусный счет клиента',
+  `pin_code` varchar(45) NOT NULL DEFAULT '0000' COMMENT 'ПИН код для входа в личный кабинет на сайте и айбоксе',
+  `category` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'категория скидки по картам',
+  `fixperc` double NOT NULL DEFAULT '0' COMMENT 'фиксированная скидка',
+  `is_employee` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'признак сотруднка',
+  `is_subscribe` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT 'подписка на рассылку новостей и рекламных акций',
+  `is_active` tinyint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'признак активности (0 - удален)',
+  `is_bonus` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'использует ли бонусную систему',
+  `is_vip` tinyint(1) NOT NULL DEFAULT '0',
+  `date_activate` bigint(20) DEFAULT NULL COMMENT 'дата активации аккаунта',
+  `date_deactivate` bigint(20) DEFAULT NULL COMMENT 'дата деактивации аккаунта',
+  `description` varchar(60) DEFAULT NULL COMMENT 'примечания',
   PRIMARY KEY (`account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1000505 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1007674 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `directory_account_cards` (
-  `account_id` int(64) NOT NULL,
-  `card_id` decimal(15,0) NOT NULL,
-  `use_bonus` tinyint(1) unsigned NOT NULL DEFAULT '1',
-  `is_active` tinyint(5) unsigned NOT NULL DEFAULT '1',
-  `date_activate` int(64) DEFAULT NULL,
-  `date_deactivate` int(64) DEFAULT NULL,
+  `account_id` bigint(20) NOT NULL COMMENT 'идентификатор клиента',
+  `card_id` decimal(15,0) NOT NULL COMMENT 'номер карты (без префиксов)',
+  `use_bonus` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT 'может ли тратить бонусы',
+  `status` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT 'статус карты',
+  `date_activate` bigint(20) DEFAULT NULL,
+  `date_deactivate` bigint(20) DEFAULT NULL,
   UNIQUE KEY `card_id_UNIQUE` (`card_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `directory_account_details` (
-  `account_id` int(64) unsigned NOT NULL,
+  `account_id` bigint(20) unsigned NOT NULL,
   `first_name` varchar(45) DEFAULT NULL,
   `middle_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
@@ -213,8 +381,9 @@ CREATE TABLE `directory_account_details` (
   `birthday4` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `directory_account_notice` (
-  `card_id` int(64) NOT NULL,
+  `card_id` bigint(20) NOT NULL,
   `notice` tinyint(1) NOT NULL DEFAULT '0',
   `notice_reject` tinyint(1) NOT NULL DEFAULT '0',
   `POSID` varchar(45) DEFAULT NULL,
@@ -222,75 +391,150 @@ CREATE TABLE `directory_account_notice` (
   `datetime` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`card_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `directory_cards_tmp` (
+  `card_id` decimal(15,0) NOT NULL COMMENT 'номер карты (без префиксов)',
+  `category` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'категория скидки по картам',
+  `fixperc` double NOT NULL DEFAULT '0' COMMENT 'фиксированная скидка',
+  `status` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT 'статус карты',
+  `first_name` varchar(45) DEFAULT NULL,
+  `middle_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `comment` varchar(45) DEFAULT NULL,
+  `commentmode` int(11) NOT NULL DEFAULT '0',
+  UNIQUE KEY `card_id_UNIQUE` (`card_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `directory_goods` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `code` int(10) unsigned NOT NULL DEFAULT '0',
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `code` int(11) unsigned NOT NULL DEFAULT '0',
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `code_name` (`code`,`name`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=89861 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+  UNIQUE KEY `code_name` (`code`,`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=105717 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
 CREATE TABLE `directory_log` (
   `module_id` int(11) NOT NULL DEFAULT '0',
-  `some_id` int(64) NOT NULL DEFAULT '0' COMMENT '����� ID ��� ������ �� ��������� (��� ����� �������� � �������������� � ������� ��������� ��� ����� �������������), �� ��������� 0 ',
-  `date` int(64) NOT NULL,
+  `some_id` bigint(20) NOT NULL DEFAULT '0' COMMENT 'Любой ID для поиска по критериям (для учета действий с пользователями и прочими таблицами где нужен идентификатор), по умолчанию 0 ',
+  `date` bigint(20) NOT NULL,
   `operation_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `description` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `directory_log_modules` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `directory_log_operations` (
   `operation_id` int(11) NOT NULL,
   `description` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`operation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `directory_operator` (
-  `id` smallint(5) unsigned NOT NULL,
-  `pos_id` tinyint(1) unsigned NOT NULL,
-  `operator_id` smallint(5) unsigned NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `pos_rightmask` int(11) NOT NULL,
-  `rightmask` int(11) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Глобальный ID, В POSе не нужен',
+  `pos_id` int(11) unsigned NOT NULL COMMENT 'ID POS терминала к которому привязан кассир',
+  `operator_code` int(11) unsigned NOT NULL COMMENT 'В POS "IdOP (Номер кассира)"',
+  `name` varchar(50) NOT NULL COMMENT 'Имя оператора',
+  `password` varchar(50) NOT NULL DEFAULT '1' COMMENT 'Пароль',
+  `cash_password` varchar(50) NOT NULL DEFAULT '0' COMMENT 'Пароль кассы',
+  `magnetcard_code` varchar(50) DEFAULT '' COMMENT 'Card (номер магнитной карты)',
+  `rightmask` int(11) NOT NULL DEFAULT '0' COMMENT 'Права доступа',
+  `not_active` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Переключатель активности',
+  `is_deleted` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Если аккаунта удален (данные из базы никогда не удаляются, а только помечаються таковыми)',
+  `description` varchar(150) DEFAULT '' COMMENT 'Причины удаления и прочего',
+  `time_delete` bigint(20) unsigned DEFAULT '0' COMMENT 'Время удаления',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pos_operator_name` (`pos_id`,`operator_code`,`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `directory_pos` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `fiscal_number` varchar(50) NOT NULL,
-  `object_id` int(10) NOT NULL,
-  `description` varchar(500) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-CREATE TABLE `directory_pos_groups` (
+  `object_id` int(11) unsigned DEFAULT '0',
+  `description` varchar(500) DEFAULT '',
+  `IP` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+CREATE TABLE `directory_pos_fiscals` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
+  `pos_id` int(11) NOT NULL,
+  `fiscal_number` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `fiscal_number_UNIQUE` (`fiscal_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `directory_pos_groups` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `directory_pos_objects` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `group_id` int(11) DEFAULT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT '',
+  `group_id` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `directory_securitylist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL DEFAULT '9900160000371',
+  `group_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `object_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `pos_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `is_master` tinyint(2) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `directory_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL DEFAULT '0000',
+  `rightmask` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `lock_account` (
+  `account_id` int(11) unsigned NOT NULL,
+  `time_operation` bigint(20) unsigned NOT NULL,
+  `pos_id` int(11) unsigned NOT NULL,
+  `discard_code` int(11) unsigned NOT NULL,
+  UNIQUE KEY `account_id` (`account_id`),
+  UNIQUE KEY `time_pos_discard` (`time_operation`,`pos_id`,`discard_code`)
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+CREATE TABLE `modules` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `protokol_actions` (
   `time_check` bigint(20) unsigned NOT NULL,
-  `pos_id` tinyint(1) unsigned NOT NULL,
+  `pos_id` int(11) unsigned NOT NULL,
   `check_id` smallint(5) unsigned NOT NULL,
   `document_id` tinyint(1) unsigned NOT NULL,
   `time_operation` bigint(20) unsigned NOT NULL,
   `operation_id` tinyint(1) unsigned NOT NULL,
-  `goods_id` int(10) unsigned NOT NULL DEFAULT '0',
-  `discard_code` int(10) unsigned NOT NULL DEFAULT '0',
-  `quantity` decimal(10,3) unsigned NOT NULL DEFAULT '0.000',
+  `goods_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `discard_code` int(11) unsigned NOT NULL DEFAULT '0',
+  `quantity` decimal(16,3) NOT NULL DEFAULT '0.000',
   `is_refund` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `operation_sum` decimal(12,2) NOT NULL DEFAULT '0.00',
-  `operator_id` smallint(5) unsigned NOT NULL DEFAULT '0',
-  KEY `cash_check` (`time_check`,`pos_id`,`check_id`,`document_id`),
+  `operation_sum` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `operation_sum_base` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `operator_id` int(11) unsigned DEFAULT '0',
+  `rec_id` int(11) unsigned DEFAULT '0',
+  KEY `cash_check` (`time_check`,`pos_id`,`check_id`,`document_id`,`rec_id`),
   KEY `time_pos_goods` (`time_check`,`pos_id`,`goods_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY RANGE (time_check)
@@ -439,49 +683,56 @@ CREATE TABLE `protokol_actions` (
  PARTITION p2024_10 VALUES LESS THAN (1730412000) ENGINE = InnoDB,
  PARTITION p2024_11 VALUES LESS THAN (1733004000) ENGINE = InnoDB,
  PARTITION pMAXVALUE VALUES LESS THAN MAXVALUE ENGINE = InnoDB) */;
+
 CREATE TABLE `protokol_fiscal` (
-  `device_number` varchar(20) NOT NULL,
-  `fiscal_number` varchar(20) NOT NULL,
-  `id_z` varchar(20) NOT NULL,
-  `time_z` bigint(20) unsigned NOT NULL,
-  `check_count` int(10) unsigned NOT NULL DEFAULT '0',
-  `sales` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `cash` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `credit` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `checks` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `other` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `refunds` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `cash_in` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `cash_out` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `cash_sum` decimal(8,2) NOT NULL DEFAULT '0.00',
+  `device_number` varchar(20) NOT NULL COMMENT 'Заводской номер регистратора',
+  `fiscal_number` varchar(20) NOT NULL COMMENT 'Фискальный номер регистратора',
+  `id_z` varchar(20) NOT NULL COMMENT 'Номер Z отчета',
+  `time_z` bigint(20) unsigned NOT NULL COMMENT 'Дата и время Z отчета',
+  `check_count` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'Количество чеков',
+  `sales` decimal(17,2) NOT NULL DEFAULT '0.00' COMMENT 'Продажи на сумму',
+  `cash` decimal(17,2) NOT NULL DEFAULT '0.00' COMMENT 'Наличные',
+  `credit` decimal(17,2) NOT NULL DEFAULT '0.00' COMMENT 'Кредит',
+  `checks` decimal(17,2) NOT NULL DEFAULT '0.00' COMMENT 'Прочие',
+  `other` decimal(17,2) NOT NULL DEFAULT '0.00' COMMENT 'Чек',
+  `refunds` decimal(17,2) NOT NULL DEFAULT '0.00' COMMENT 'Возвраты',
+  `cash_in` decimal(17,2) NOT NULL DEFAULT '0.00' COMMENT 'Внос',
+  `cash_out` decimal(17,2) NOT NULL DEFAULT '0.00' COMMENT 'Вынос',
+  `cash_sum` decimal(17,2) NOT NULL DEFAULT '0.00' COMMENT 'Сумма в касее',
+  UNIQUE KEY `number_fiscal_id_time` (`device_number`,`fiscal_number`,`id_z`,`time_z`),
   KEY `device_number` (`device_number`),
   KEY `fiscal_number` (`fiscal_number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
 CREATE TABLE `protokol_operations` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
+  `id` int(11) unsigned NOT NULL,
+  `name` varchar(50) NOT NULL,
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `protokol_operations_colors` (
   `op_id` int(11) NOT NULL,
   `color` varchar(45) DEFAULT NULL,
   `text_color` varchar(45) DEFAULT NULL,
   UNIQUE KEY `op_id_UNIQUE` (`op_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `protokol_sales` (
   `time_check` bigint(20) unsigned NOT NULL,
-  `pos_id` tinyint(1) unsigned NOT NULL,
+  `pos_id` int(11) unsigned NOT NULL,
   `check_id` smallint(5) unsigned NOT NULL,
   `document_id` tinyint(1) unsigned NOT NULL,
   `time_operation` bigint(20) unsigned NOT NULL,
   `operation_id` tinyint(1) unsigned NOT NULL,
-  `goods_id` int(10) unsigned NOT NULL DEFAULT '0',
-  `discard_code` int(10) unsigned NOT NULL DEFAULT '0',
-  `quantity` decimal(10,3) unsigned NOT NULL DEFAULT '0.000',
+  `goods_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `discard_code` int(11) unsigned NOT NULL DEFAULT '0',
+  `quantity` decimal(16,3) NOT NULL DEFAULT '0.000',
   `is_refund` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `operation_sum` decimal(12,2) NOT NULL DEFAULT '0.00',
-  `operator_id` smallint(5) unsigned NOT NULL DEFAULT '0',
-  KEY `cash_check` (`time_check`,`pos_id`,`check_id`,`document_id`),
+  `operation_sum` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `operation_sum_base` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `operator_id` int(11) unsigned DEFAULT '0',
+  `rec_id` int(11) unsigned DEFAULT '0',
+  KEY `cash_check` (`time_check`,`pos_id`,`check_id`,`document_id`,`rec_id`),
   KEY `time_pos_goods` (`time_check`,`pos_id`,`goods_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 /*!50100 PARTITION BY RANGE (time_check)
@@ -630,3 +881,116 @@ CREATE TABLE `protokol_sales` (
  PARTITION p2024_10 VALUES LESS THAN (1730412000) ENGINE = InnoDB,
  PARTITION p2024_11 VALUES LESS THAN (1733004000) ENGINE = InnoDB,
  PARTITION pMAXVALUE VALUES LESS THAN MAXVALUE ENGINE = InnoDB) */;
+
+CREATE TABLE `protokol_sales_sum` (
+  `date` bigint(20) NOT NULL,
+  `pos_id` int(11) unsigned NOT NULL,
+  `check_num` int(11) unsigned NOT NULL DEFAULT '0',
+  `cancel_sale_num` int(11) unsigned NOT NULL DEFAULT '0',
+  `refunds_num` int(11) unsigned NOT NULL DEFAULT '0',
+  `remote_operations_num` int(11) unsigned NOT NULL DEFAULT '0',
+  `check_removed_num` int(11) unsigned NOT NULL DEFAULT '0',
+  `sale` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `reject` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `discount` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `raise` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `cash` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `check` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `credit` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `other` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `total` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `refund` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `in` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `out` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `cashsum` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `bonus_credit` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `bonus_debet` decimal(17,2) NOT NULL DEFAULT '0.00',
+  UNIQUE KEY `date_pos_id` (`date`,`pos_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `protokol_sales_sum_time` (
+  `date` bigint(20) NOT NULL,
+  `pos_id` int(11) unsigned NOT NULL,
+  `n00` int(11) NOT NULL DEFAULT '0',
+  `s00` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n01` int(11) NOT NULL DEFAULT '0',
+  `s01` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n02` int(11) NOT NULL DEFAULT '0',
+  `s02` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n03` int(11) NOT NULL DEFAULT '0',
+  `s03` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n04` int(11) NOT NULL DEFAULT '0',
+  `s04` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n05` int(11) NOT NULL DEFAULT '0',
+  `s05` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n06` int(11) NOT NULL DEFAULT '0',
+  `s06` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n07` int(11) NOT NULL DEFAULT '0',
+  `s07` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n08` int(11) NOT NULL DEFAULT '0',
+  `s08` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n09` int(11) NOT NULL DEFAULT '0',
+  `s09` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n10` int(11) NOT NULL DEFAULT '0',
+  `s10` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n11` int(11) NOT NULL DEFAULT '0',
+  `s11` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n12` int(11) NOT NULL DEFAULT '0',
+  `s12` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n13` int(11) NOT NULL DEFAULT '0',
+  `s13` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n14` int(11) NOT NULL DEFAULT '0',
+  `s14` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n15` int(11) NOT NULL DEFAULT '0',
+  `s15` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n16` int(11) NOT NULL DEFAULT '0',
+  `s16` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n17` int(11) NOT NULL DEFAULT '0',
+  `s17` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n18` int(11) NOT NULL DEFAULT '0',
+  `s18` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n19` int(11) NOT NULL DEFAULT '0',
+  `s19` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n20` int(11) NOT NULL DEFAULT '0',
+  `s20` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n21` int(11) NOT NULL DEFAULT '0',
+  `s21` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n22` int(11) NOT NULL DEFAULT '0',
+  `s22` decimal(17,2) NOT NULL DEFAULT '0.00',
+  `n23` int(11) NOT NULL DEFAULT '0',
+  `s23` decimal(17,2) NOT NULL DEFAULT '0.00',
+  UNIQUE KEY `date_pos_id` (`date`,`pos_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `scheduler_operations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `scheduler_tasks` (
+  `operation_id` int(11) NOT NULL DEFAULT '0',
+  `time` bigint(20) NOT NULL DEFAULT '0',
+  `doit` tinyint(1) NOT NULL DEFAULT '0',
+  `pos_id` int(11) NOT NULL DEFAULT '0',
+  `obj_id` int(11) NOT NULL DEFAULT '0',
+  `group_id` int(11) NOT NULL DEFAULT '0',
+  `is_master` tinyint(1) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`operation_id`,`pos_id`,`obj_id`,`group_id`,`is_master`,`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `scheduler_tasks_done` (
+  `operation_id` int(11) NOT NULL DEFAULT '0',
+  `update_time` bigint(20) NOT NULL DEFAULT '0',
+  `pos_id` int(11) NOT NULL DEFAULT '0',
+  `obj_id` int(11) NOT NULL DEFAULT '0',
+  `group_id` int(11) NOT NULL DEFAULT '0',
+  `is_master` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`operation_id`,`pos_id`,`obj_id`,`group_id`,`is_master`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `system_var` (
+  `name` varchar(50) NOT NULL,
+  `value` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
